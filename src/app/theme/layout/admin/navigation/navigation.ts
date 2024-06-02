@@ -130,12 +130,12 @@ const NavigationItems = [
       },
     ],
   },
-  {
-    id: 'pages',
-    title: 'Pages',
-    type: 'group',
-    icon: 'icon-pages',
-    children: [
+  // {
+  //   id: 'pages',
+  //   title: 'Pages',
+  //   type: 'group',
+  //   icon: 'icon-pages',
+  //   children: [
       // {
       //   id: 'auth',
       //   title: 'Authentication',
@@ -187,8 +187,8 @@ const NavigationItems = [
       //   target: true,
       //   external: true,
       // },
-    ],
-  },
+    // ],
+  // },
 ];
 
 @Injectable()

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
@@ -8,4 +9,14 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
   templateUrl: './tbl-bootstrap.component.html',
   styleUrls: ['./tbl-bootstrap.component.scss'],
 })
-export default class TblBootstrapComponent {}
+export default class TblBootstrapComponent implements OnInit {
+
+  constructor(private superHeroesService: SuperHeroesService) {}
+
+  ngOnInit() {
+    this.superHeroesService.getSuperHeroes().subscribe(res => {
+      console.log(res);
+    });
+  }
+
+}
