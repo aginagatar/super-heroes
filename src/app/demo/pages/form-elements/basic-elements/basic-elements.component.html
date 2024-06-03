@@ -21,12 +21,33 @@
             <div class="form-group">
               <!-- <mat-form-field> -->
                 <mat-label>Género</mat-label>
-                <mat-radio-group formControlName="sexo" id="generoRadio">
+                <mat-radio-group formControlName="genero" id="generoRadio">
                   <mat-radio-button value="M">Masculino</mat-radio-button>
                   <mat-radio-button value="F">Femenino</mat-radio-button>
                 </mat-radio-group>
-                <mat-error *ngIf="formulario.get('sexo').invalid && formulario.get('sexo').touched">Selecciona el género</mat-error>
+                <mat-error *ngIf="formulario.get('genero').invalid && formulario.get('genero').touched">Selecciona el género</mat-error>
               <!-- </mat-form-field> -->
+            </div>
+            <div class="form-group">
+              <!-- <mat-form-field> -->
+                <!-- <mat-label>Color de ojos</mat-label>
+                <mat-select formControlName="colorOjos" placeholder="Selecciona un color">
+                  <mat-option value="A">Azul</mat-option>
+                  <mat-option value="V">Verde</mat-option>
+                  <mat-option value="M">Marrón</mat-option>
+                  <mat-option value="N">Negro</mat-option>
+                  <mat-option value="O">Otro</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formulario.get('colorOjos').invalid && formulario.get('colorOjos').touched">Selecciona el color de ojos</mat-error> -->
+              <!-- </mat-form-field> -->
+
+              <mat-form-field>
+                <mat-label>Color de ojos</mat-label>
+                <mat-select formControlName="colorOjos" placeholder="Selecciona un color">
+                  <mat-option *ngFor="let ojo of ojos" [value]="ojo.value">{{ojo.color}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formulario.get('colorOjos').invalid && formulario.get('colorOjos').touched">Selecciona el color de ojos</mat-error>
+              </mat-form-field>
             </div>
             <button mat-raised-button color="primary" type="submit">Enviar</button>
           </form>

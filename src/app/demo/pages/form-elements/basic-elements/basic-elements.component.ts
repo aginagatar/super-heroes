@@ -13,11 +13,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export default class BasicElementsComponent {
 
   formulario: FormGroup;
+  ojos: any = [
+    {value: 'A', color: 'Azul'},
+    {value: 'M', color: 'Marrón'},
+    {value: 'N', color: 'Negro'},
+    {value: 'V', color: 'Verde'},
+    {value: 'O', color: 'Otro'}
+  ];
 
   constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
-      sexo: ['', Validators.required]
+      genero: ['', Validators.required],
+      colorOjos: ['', Validators.required]
     });
   }
 
