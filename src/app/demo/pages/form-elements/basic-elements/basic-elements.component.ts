@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-basic-elements',
   standalone: true,
+  providers: [provideNativeDateAdapter()],
   imports: [SharedModule, NgbDropdownModule],
   templateUrl: './basic-elements.component.html',
   styleUrls: ['./basic-elements.component.scss'],
@@ -20,6 +22,7 @@ export default class BasicElementsComponent {
     {value: 'V', color: 'Verde'},
     {value: 'O', color: 'Otro'}
   ];
+  selectedDate: Date;
 
   superpoderes: any = [
     {value: 'VU', poder: 'Vuelo'},
@@ -37,7 +40,8 @@ export default class BasicElementsComponent {
       nombre: ['', Validators.required],
       genero: ['', Validators.required],
       colorOjos: ['', Validators.required],
-      superpoderes: this.formBuilder.array([], Validators.required)
+      superpoderes: this.formBuilder.array([], Validators.required),
+      fechaNacimiento: ['', [Validators.required, this.fechaMenorQueAyer]]
     });
   }
 
@@ -69,5 +73,16 @@ export default class BasicElementsComponent {
       superpoderes.removeAt(index);
     }
     console.log(superpoderes);
+  }
+
+  fechaMenorQueAyer(control) {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const selectedDate = new Date(control.value);
+    if (selectedDate >= yesterday) {
+      return { fechaMenorQueAyer: true };
+    }
+    return null;
   }
 }

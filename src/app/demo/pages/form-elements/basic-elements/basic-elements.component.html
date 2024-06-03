@@ -58,6 +58,18 @@
                 <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
               <!-- </mat-form-field> -->
             </div>
+
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="formulario.get('fechaNacimiento').invalid && formulario.get('fechaNacimiento').touched">
+                  La fecha debe ser menor a la fecha de hoy
+                </mat-error>
+              </mat-form-field>
+            </div>
             <button mat-raised-button color="primary" type="submit">Enviar</button>
           </form>
         </div>

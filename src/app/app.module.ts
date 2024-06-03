@@ -25,6 +25,11 @@ import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { ToggleFullScreenDirective } from './theme/shared/components/full-screen/toggle-full-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+
+registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
@@ -53,7 +58,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [NavigationItem, provideAnimationsAsync()],
+  providers: [NavigationItem, provideAnimationsAsync(),
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' } // Set the locale to Spanish (Spain)
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
