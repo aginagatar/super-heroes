@@ -3,6 +3,7 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 
 @Component({
   selector: 'app-basic-elements',
@@ -35,7 +36,8 @@ export default class BasicElementsComponent {
     {value: 'RX', poder: 'Rayos X'}
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private superHeroesService: SuperHeroesService) {
     this.formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
       genero: ['', Validators.required],
@@ -49,6 +51,11 @@ export default class BasicElementsComponent {
     if (this.formulario.valid) {
       // Realizar acción de envío aquí
       console.log('Formulario válido. Datos:', this.formulario.value);
+      const superHeroe: any = this.formulario.value;
+
+      this.superHeroesService.crearSuperHeroe(superHeroe).subscribe(res => {
+        console.log(res);
+      });
     } else {
       // Marcar los campos inválidos como tocados para que se muestren los mensajes de error
       this.marcarCamposComoTocados();
