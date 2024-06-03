@@ -14,6 +14,9 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 // third party
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [SpinnerComponent],
@@ -37,6 +40,9 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     NgScrollbarModule,
     NgbCollapseModule,
     BreadcrumbsComponent,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
 })
 export class SharedModule {}

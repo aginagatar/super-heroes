@@ -35,6 +35,15 @@
       </div>
     </app-card>
   </div> -->
+  <div style="display: flex; justify-content: center; margin-top: 50px;">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" [formControl]="searchControl">
+      <button mat-icon-button matSuffix aria-label="Search" (click)="onSearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
   <div class="col-xl-12">
     <app-card
       cardTitle="Striped Table"
@@ -52,9 +61,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let superHeroe of superHeroes">
+            <tr *ngFor="let superHeroe of superHeroesFiltrado">
               <th scope="row">{{superHeroe.nombre}}</th>
-              <td>{{superHeroe.genero}}</td>
+              <td>{{superHeroe.genero === 'H' ? 'Hombre' : 'Mujer'}}</td>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
               <td>{{superHeroe.habilidades}}</td>
             </tr>
