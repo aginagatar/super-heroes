@@ -49,6 +49,15 @@
                 <mat-error *ngIf="formulario.get('colorOjos').invalid && formulario.get('colorOjos').touched">Selecciona el color de ojos</mat-error>
               </mat-form-field>
             </div>
+            <div class="form-group">
+              <!-- <mat-form-field> -->
+                <mat-label>Superpoderes</mat-label>
+                <div>
+                  <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.vlue}}">{{superpoder.poder}}</mat-checkbox>
+                </div>
+                <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
+              <!-- </mat-form-field> -->
+            </div>
             <button mat-raised-button color="primary" type="submit">Enviar</button>
           </form>
         </div>

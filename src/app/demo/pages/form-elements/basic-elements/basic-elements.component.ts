@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-elements',
@@ -21,11 +21,23 @@ export default class BasicElementsComponent {
     {value: 'O', color: 'Otro'}
   ];
 
+  superpoderes: any = [
+    {value: 'VU', poder: 'Vuelo'},
+    {value: 'IN', poder: 'Invisibilidad'},
+    {value: 'TQ', poder: 'Telequinesis'},
+    {value: 'SF', poder: 'Superfuerzarde'},
+    {value: 'TP', poder: 'Telepatía'},
+    {value: 'TT', poder: 'Teletransporte'},
+    {value: 'VE', poder: 'Velocidad'},
+    {value: 'RX', poder: 'Rayos X'}
+  ];
+
   constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
       genero: ['', Validators.required],
-      colorOjos: ['', Validators.required]
+      colorOjos: ['', Validators.required],
+      superpoderes: this.formBuilder.array([], Validators.required)
     });
   }
 
@@ -45,5 +57,17 @@ export default class BasicElementsComponent {
         this.formulario.controls[control].markAsTouched();
       }
     }
+  }
+
+  onCheckboxChange(e, superpoder) {
+    console.log(e);
+    const superpoderes: FormArray = this.formulario.get('superpoderes') as FormArray;
+    if (e.checked) {
+      superpoderes.push(this.formBuilder.control(superpoder));
+    } else {
+      const index = superpoderes.controls.findIndex(x => x.value === superpoder);
+      superpoderes.removeAt(index);
+    }
+    console.log(superpoderes);
   }
 }
