@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, fromEvent, map } from 'rxjs';
+import { ojos } from 'src/app/demo/core/constantes';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
@@ -73,6 +74,11 @@ export default class TblBootstrapComponent implements OnInit {
       item.nombre.toLowerCase().includes(this.searchTable.toLowerCase())
     );
     console.log('Filtered items:', this.superHeroesFiltrado);
+  }
+
+  getDescripcionOjos(value) {
+    const eye = ojos.find(oj => oj.value === value);
+    return eye ? eye.color : undefined;
   }
 
 }

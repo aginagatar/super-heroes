@@ -66,7 +66,7 @@
               <th scope="row">{{superHeroe.nombre}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
               <td>{{superHeroe.genero === 'H' ? 'Hombre' : 'Mujer'}}</td>
-              <td>{{superHeroe.colorOjos}}</td>
+              <td>{{getDescripcionOjos(superHeroe.colorOjos)}}</td>
               <td>{{superHeroe.superpoderes}}</td>
             </tr>
           </tbody>
