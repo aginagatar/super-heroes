@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { ojos } from 'src/app/demo/core/constantes';
+import { ojos, superpoderes } from 'src/app/demo/core/constantes';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 
@@ -79,6 +79,15 @@ export default class TblBootstrapComponent implements OnInit {
   getDescripcionOjos(value) {
     const eye = ojos.find(oj => oj.value === value);
     return eye ? eye.color : undefined;
+  }
+
+  getDescripcionSuperpoderes(valores) {
+    const superpoderesMap: { [key: string]: string } = {};
+    superpoderes.forEach(superpoder => {
+      superpoderesMap[superpoder.value] = superpoder.poder;
+    });
+    const poderes = valores.map(valor => superpoderesMap[valor]).filter(poder => poder !== undefined);
+    return poderes.join(', ');
   }
 
 }
