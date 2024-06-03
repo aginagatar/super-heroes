@@ -25,8 +25,15 @@ export class SuperHeroesService {
       superpoderes: sh.superpoderes,
       fechaNacimiento: sh.fechaNacimiento
     };
-    // const datuak = JSON.stringify(datos);
     return this.http.post(this.endpoint + 'superheroes', datos).pipe(
+      tap((data: any) => {
+        return data;
+      })
+    );
+  }
+
+  eliminarSuperHeroe(id: string): Observable<any> {
+    return this.http.delete(this.endpoint + 'superheroes/' + id).pipe(
       tap((data: any) => {
         return data;
       })

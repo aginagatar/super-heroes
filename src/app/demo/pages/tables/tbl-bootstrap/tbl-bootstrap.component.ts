@@ -4,6 +4,8 @@ import { debounceTime, fromEvent, map } from 'rxjs';
 import { ojos, superpoderes } from 'src/app/demo/core/constantes';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAnimationsExampleDialog } from '../../dialogs/dialog-animations-example-dialog';
 
 @Component({
   selector: 'app-tbl-bootstrap',
@@ -35,7 +37,8 @@ export default class TblBootstrapComponent implements OnInit {
     }
 ];
 
-  constructor(private superHeroesService: SuperHeroesService) {}
+  constructor(private superHeroesService: SuperHeroesService,
+    private dialog: MatDialog) {}
 
   ngOnInit() {
     // this.superHeroesService.getSuperHeroes().subscribe(res => {
@@ -51,6 +54,24 @@ export default class TblBootstrapComponent implements OnInit {
         this.searchTable = value;
         this.onSearch();
       });
+  }
+
+  editar() {
+    console.log('juujju');
+  }
+
+  eliminar(superHeroe: any, enterAnimationDuration: string, exitAnimationDuration: string) {
+    this.dialog.open(DialogAnimationsExampleDialog, {
+      data: {
+        nombre: superHeroe.nombre
+      },
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    // this.superHeroesService.eliminarSuperHeroe(id).subscribe(res => {
+    //   console.log(res);
+    // })
   }
 
   calcularEdad(data) {

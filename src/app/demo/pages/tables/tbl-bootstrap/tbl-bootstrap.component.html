@@ -54,6 +54,8 @@
         <table class="table table-striped">
           <thead>
             <tr>
+              <th>Editar</th>
+              <th>Eliminar</th>
               <th>Nombre</th>
               <th>Edad</th>
               <th>Género</th>
@@ -63,6 +65,13 @@
           </thead>
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado">
+              <td>
+                <button mat-raised-button color="primary" (click)="editar()">Editar</button>
+              </td>
+              <td>
+                <!-- <button mat-raised-button color="primary" (click)="eliminar(superHeroe.id)">Eliminar</button> -->
+                <button mat-raised-button (click)="eliminar(superHeroe, '0ms', '0ms')">Eliminar</button>
+              </td>
               <th scope="row">{{superHeroe.nombre}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
               <td>{{superHeroe.genero === 'H' ? 'Hombre' : 'Mujer'}}</td>
