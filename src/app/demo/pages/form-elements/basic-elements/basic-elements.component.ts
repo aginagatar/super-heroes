@@ -15,6 +15,8 @@ import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 })
 export default class BasicElementsComponent {
 
+  color = '';
+
   formulario: FormGroup;
   ojos: any = [
     {value: 'A', color: 'Azules'},
@@ -43,8 +45,15 @@ export default class BasicElementsComponent {
       genero: ['', Validators.required],
       colorOjos: ['', Validators.required],
       superpoderes: this.formBuilder.array([], Validators.required),
-      fechaNacimiento: ['', [Validators.required, this.fechaMenorQueAyer]]
+      fechaNacimiento: ['', [Validators.required, this.fechaMenorQueAyer]],
+      color: ['', Validators.required]
     });
+  }
+
+  changeColor(e) {
+    console.log(e);
+    this.formulario.get('color').setValue(e);
+    this.formulario.get('color').markAsTouched();
   }
 
   enviar() {

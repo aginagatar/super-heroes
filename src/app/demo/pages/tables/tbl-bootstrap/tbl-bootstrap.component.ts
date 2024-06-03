@@ -33,20 +33,34 @@ export default class TblBootstrapComponent implements OnInit {
             "RX"
         ],
         "fechaNacimiento": "1938-11-09T23:00:00.000Z",
+        "color": "#6663d6",
         "id": "06cb6206b79bbfd5237e"
-    }
+    },
+    {
+      "nombre": "batman",
+      "genero": "M",
+      "colorOjos": "V",
+      "superpoderes": [
+          "TQ",
+          "SF",
+          "IN"
+      ],
+      "fechaNacimiento": "1951-11-09T23:00:00.000Z",
+      "color": "#a09bc2",
+      "id": "06cb6206b79bb345237e"
+  }
 ];
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog) {}
 
   ngOnInit() {
-    // this.superHeroesService.getSuperHeroes().subscribe(res => {
-    //   console.log(res);
-    //   this.superHeroes = res;
-      this.superHeroes = this.superheroesssss;
+    this.superHeroesService.getSuperHeroes().subscribe(res => {
+      console.log(res);
+      this.superHeroes = res;
+      // this.superHeroes = this.superheroesssss;
       this.superHeroesFiltrado = this.superHeroes;
-    // });
+    });
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
@@ -61,7 +75,7 @@ export default class TblBootstrapComponent implements OnInit {
   }
 
   eliminar(superHeroe: any, enterAnimationDuration: string, exitAnimationDuration: string) {
-    this.dialog.open(DialogAnimationsExampleDialog, {
+    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
       data: {
         nombre: superHeroe.nombre
       },
@@ -69,9 +83,15 @@ export default class TblBootstrapComponent implements OnInit {
       enterAnimationDuration,
       exitAnimationDuration,
     });
-    // this.superHeroesService.eliminarSuperHeroe(id).subscribe(res => {
-    //   console.log(res);
-    // })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.superHeroesService.eliminarSuperHeroe(superHeroe.id).subscribe(res => {
+          console.log(res);
+        });
+      }
+    });
   }
 
   calcularEdad(data) {

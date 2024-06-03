@@ -3,6 +3,6 @@
   ¿Seguro que desea eliminar a {{data.nombre}}?
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+  <button mat-button mat-dialog-close (click)="sendData(false)">No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="sendData(true)">Ok</button>
 </mat-dialog-actions>

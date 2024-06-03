@@ -23,6 +23,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatOptionModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    ColorPickerModule
   ],
 })
 export class SharedModule {}

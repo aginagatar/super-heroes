@@ -23,7 +23,8 @@ export class SuperHeroesService {
       genero: sh.genero,
       colorOjos: sh.colorOjos,
       superpoderes: sh.superpoderes,
-      fechaNacimiento: sh.fechaNacimiento
+      fechaNacimiento: sh.fechaNacimiento,
+      color: sh.color
     };
     return this.http.post(this.endpoint + 'superheroes', datos).pipe(
       tap((data: any) => {

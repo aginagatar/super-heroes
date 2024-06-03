@@ -12,4 +12,9 @@ export class DialogAnimationsExampleDialog {
 
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+
+    sendData(borrar: boolean): void {
+      this.dialogRef.close(borrar);
+    }
 }
