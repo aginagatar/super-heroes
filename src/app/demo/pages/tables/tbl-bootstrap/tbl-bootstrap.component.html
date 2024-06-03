@@ -55,17 +55,19 @@
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Género</th>
               <th>Edad</th>
-              <th>Habilidades</th>
+              <th>Género</th>
+              <th>Color ojos</th>
+              <th>Superpoderes<th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado">
               <th scope="row">{{superHeroe.nombre}}</th>
-              <td>{{superHeroe.genero === 'H' ? 'Hombre' : 'Mujer'}}</td>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
-              <td>{{superHeroe.habilidades}}</td>
+              <td>{{superHeroe.genero === 'H' ? 'Hombre' : 'Mujer'}}</td>
+              <td>{{superHeroe.colorOjos}}</td>
+              <td>{{superHeroe.superpoderes}}</td>
             </tr>
           </tbody>
         </table>

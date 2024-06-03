@@ -18,13 +18,31 @@ export default class TblBootstrapComponent implements OnInit {
   searchTable: string = '';
   searchControl: FormControl = new FormControl('');
 
+  private superheroesssss =
+  [
+    {
+        "nombre": "spiderman",
+        "genero": "M",
+        "colorOjos": "A",
+        "superpoderes": [
+            "VU",
+            "TP",
+            "RX"
+        ],
+        "fechaNacimiento": "1938-11-09T23:00:00.000Z",
+        "id": "06cb6206b79bbfd5237e"
+    }
+];
+
   constructor(private superHeroesService: SuperHeroesService) {}
 
   ngOnInit() {
-    this.superHeroesService.getSuperHeroes().subscribe(res => {
-      this.superHeroes = res;
+    // this.superHeroesService.getSuperHeroes().subscribe(res => {
+    //   console.log(res);
+    //   this.superHeroes = res;
+      this.superHeroes = this.superheroesssss;
       this.superHeroesFiltrado = this.superHeroes;
-    });
+    // });
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
@@ -34,8 +52,10 @@ export default class TblBootstrapComponent implements OnInit {
       });
   }
 
-  calcularEdad(timestamp) {
-    const birthDate = new Date(timestamp * 1000);
+  calcularEdad(data) {
+    const date = new Date(data);
+    const unixTimestamp = Math.floor(date.getTime() / 1000);
+    const birthDate = new Date(unixTimestamp * 1000);
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
     const m = today.getMonth() - birthDate.getMonth();

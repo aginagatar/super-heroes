@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SuperHeroesService {
 
-  private endpoint = 'https://cabb2dad75df47babd30s.free.beeceptor.com/api/';
+  private endpoint = 'https://ca62a382e0f1c0c5062b.free.beeceptor.com/api/';
 
   constructor(public http: HttpClient) {}
 

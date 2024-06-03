@@ -17,10 +17,10 @@ export default class BasicElementsComponent {
 
   formulario: FormGroup;
   ojos: any = [
-    {value: 'A', color: 'Azul'},
-    {value: 'M', color: 'Marrón'},
-    {value: 'N', color: 'Negro'},
-    {value: 'V', color: 'Verde'},
+    {value: 'A', color: 'Azules'},
+    {value: 'M', color: 'Marrones'},
+    {value: 'N', color: 'Negros'},
+    {value: 'V', color: 'Verdes'},
     {value: 'O', color: 'Otro'}
   ];
   selectedDate: Date;
