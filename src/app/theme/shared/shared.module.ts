@@ -18,6 +18,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatRadioModule
   ],
 })
 export class SharedModule {}

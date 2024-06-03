@@ -16,7 +16,8 @@ export default class BasicElementsComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
-      nombre: ['', Validators.required]
+      nombre: ['', Validators.required],
+      sexo: ['', Validators.required]
     });
   }
 
