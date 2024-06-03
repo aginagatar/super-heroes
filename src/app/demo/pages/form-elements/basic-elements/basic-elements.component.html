@@ -3,6 +3,32 @@
     <app-card cardTitle="Basic Component" [options]="false">
       <h5>Form controls</h5>
       <hr />
+
+
+
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <form [formGroup]="formulario" (ngSubmit)="enviar()">
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Nombre" formControlName="nombre">
+              <mat-error *ngIf="formulario.get('nombre').invalid && formulario.get('nombre').touched">El nombre es requerido</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Enviar</button>
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
       <div class="row">
         <div class="col-md-6">
           <form action="javascript:">
