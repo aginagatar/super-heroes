@@ -63,12 +63,12 @@ export default class TablaListadoComponent implements OnInit {
     private comunes: Comunes) {}
 
   ngOnInit() {
-    this.superHeroesService.getSuperHeroes().subscribe(res => {
-      console.log(res);
-      this.superHeroes = res;
-      // this.superHeroes = this.superheroesssss;
+    // this.superHeroesService.getSuperHeroes().subscribe(res => {
+    //   console.log(res);
+    //   this.superHeroes = res;
+      this.superHeroes = this.superheroesssss;
       this.superHeroesFiltrado = this.superHeroes;
-    });
+    // });
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
@@ -80,6 +80,10 @@ export default class TablaListadoComponent implements OnInit {
 
   editar(superHeroe: SuperHeroe) {
     this.superHeroesDataService.setSuperHeroe(superHeroe);
+    this.router.navigate(['/formulario']);
+  }
+
+  crearSuperHeroe() {
     this.router.navigate(['/formulario']);
   }
 
