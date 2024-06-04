@@ -7,10 +7,9 @@
 
 
 
-
+    <form [formGroup]="formulario" (ngSubmit)="enviar()">
       <div class="row">
         <div class="col-md-6">
-          <form [formGroup]="formulario" (ngSubmit)="enviar()">
             <div class="form-group">
               <h6>Nombre del superhéroe</h6>
               <mat-form-field>
@@ -20,14 +19,6 @@
               </mat-form-field>
             </div>
             <div class="form-group">
-              <h6>Género</h6>
-              <mat-radio-group formControlName="genero" id="generoRadio">
-                <mat-radio-button value="M">Masculino</mat-radio-button>
-                <mat-radio-button value="F">Femenino</mat-radio-button>
-              </mat-radio-group>
-              <mat-error *ngIf="formulario.get('genero').invalid && formulario.get('genero').touched">Selecciona el género</mat-error>
-            </div>
-            <div class="form-group">
               <h6>Color de ojos</h6>
               <mat-form-field>
                 <mat-select formControlName="colorOjos" placeholder="Selecciona un color">
@@ -35,13 +26,6 @@
                 </mat-select>
                 <mat-error *ngIf="formulario.get('colorOjos').invalid && formulario.get('colorOjos').touched">Selecciona el color de ojos</mat-error>
               </mat-form-field>
-            </div>
-            <div class="form-group">
-              <h6>Superpoderes</h6>
-              <div>
-                <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.value}}" [checked]="marcarSuperpoderesDefecto(superpoder.value)">{{superpoder.poder}}</mat-checkbox>
-              </div>
-              <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
             </div>
             <div class="form-group">
               <h6>Fecha de Nacimiento</h6>
@@ -54,22 +38,39 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <div class="form-group">
-              <h6>Color del superhéroe</h6>
-              <mat-form-field>
-                <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" required/>
-                <mat-icon matSuffix>color_lens</mat-icon>
-                <mat-error *ngIf="formulario.get('color').invalid && formulario.get('color').touched">
-                  Selecciona un color
-                </mat-error>
-              </mat-form-field>
-              <button mat-raised-button color="primary" [(colorPicker)]="color" [value]="color" (colorPickerChange)="changeColor($event)">Seleccionar color</button>
-              <!-- <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" /> -->
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <h6>Género</h6>
+            <mat-radio-group formControlName="genero" id="generoRadio">
+              <mat-radio-button value="M">Masculino</mat-radio-button>
+              <mat-radio-button value="F">Femenino</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="formulario.get('genero').invalid && formulario.get('genero').touched">Selecciona el género</mat-error>
+          </div>
+          <div class="form-group">
+            <h6>Superpoderes</h6>
+            <div>
+              <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.value}}" [checked]="marcarSuperpoderesDefecto(superpoder.value)">{{superpoder.poder}}</mat-checkbox>
             </div>
-            <button mat-raised-button color="primary" type="submit">Enviar</button>
-          </form>
+            <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
+          </div>
+          <div class="form-group">
+            <h6>Color del superhéroe</h6>
+            <mat-form-field>
+              <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" required/>
+              <mat-icon matSuffix>color_lens</mat-icon>
+              <mat-error *ngIf="formulario.get('color').invalid && formulario.get('color').touched">
+                Selecciona un color
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [(colorPicker)]="color" [value]="color" (colorPickerChange)="changeColor($event)">Seleccionar color</button>
+            <!-- <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" /> -->
+          </div>
+        <button mat-raised-button color="primary" type="submit">Enviar</button>
         </div>
       </div>
+    </form>
 
 
 
