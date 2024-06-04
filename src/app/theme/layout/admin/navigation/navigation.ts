@@ -98,7 +98,7 @@ const NavigationItems = [
     children: [
       {
         id: 'forms-element',
-        title: 'Form Elements',
+        title: 'Formulario',
         type: 'item',
         url: '/formulario',
         classes: 'nav-item',
@@ -106,7 +106,7 @@ const NavigationItems = [
       },
       {
         id: 'tables',
-        title: 'Tables',
+        title: 'Tabla - Listado',
         type: 'item',
         url: '/tabla-listado',
         classes: 'nav-item',
