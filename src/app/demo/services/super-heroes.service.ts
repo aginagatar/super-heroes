@@ -22,17 +22,16 @@ export class SuperHeroesService {
   }
 
   crearSuperHeroe(sh: SuperHeroe): Observable<SuperHeroe> {
-    console.log(sh);
-    let datos = {
-      nombre: sh.nombre,
-      genero: sh.genero,
-      colorOjos: sh.colorOjos,
-      superpoderes: sh.superpoderes,
-      fechaNacimiento: sh.fechaNacimiento,
-      color: sh.color
-    };
-    return this.http.post(this.endpoint + 'superheroes', datos).pipe(
+    return this.http.post(this.endpoint + 'superheroes', sh).pipe(
       tap((data: SuperHeroe) => {
+        return data;
+      })
+    );
+  }
+
+  editarSuperHeroe(sh: SuperHeroe): Observable<void> {
+    return this.http.put(this.endpoint + 'superheroes/' + sh.id, sh).pipe(
+      tap((data: any) => {
         return data;
       })
     );
