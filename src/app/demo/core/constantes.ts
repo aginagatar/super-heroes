@@ -1,3 +1,8 @@
+export const generos: any[] = [
+  {value: 'H', genero: 'Hombre'},
+  {value: 'M', genero: 'Mujer'}
+];
+
 export const ojos: any[] = [
   {value: 'A', color: 'Azules'},
   {value: 'M', color: 'Marrones'},

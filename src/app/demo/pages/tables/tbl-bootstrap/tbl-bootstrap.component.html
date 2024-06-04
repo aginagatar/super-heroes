@@ -52,6 +52,7 @@
     >
       <div class="table-responsive">
         <p><mat-slide-toggle [(ngModel)]="tablaEditable">Editar/Eliminar</mat-slide-toggle></p>
+        <button type="submit" class="btn btn-primary">Nuevo Superhéroe</button>
         <table class="table">
           <thead>
             <tr>
@@ -75,7 +76,7 @@
               </td>
               <th scope="row">{{superHeroe.nombre}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
-              <td>{{superHeroe.genero === 'H' ? 'Hombre' : 'Mujer'}}</td>
+              <td>{{getDescripcionGenero(superHeroe.genero)}}</td>
               <td>{{getDescripcionOjos(superHeroe.colorOjos)}}</td>
               <td>{{getDescripcionSuperpoderes(superHeroe.superpoderes)}}</td>
             </tr>

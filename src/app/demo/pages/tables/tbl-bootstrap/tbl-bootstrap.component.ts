@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { ojos, superpoderes } from 'src/app/demo/core/constantes';
+import { generos, ojos, superpoderes } from 'src/app/demo/core/constantes';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
@@ -118,9 +118,14 @@ export default class TblBootstrapComponent implements OnInit {
     console.log('Filtered items:', this.superHeroesFiltrado);
   }
 
+  getDescripcionGenero(value) {
+    const genero = generos.find(ge => ge.value === value);
+    return genero ? genero.genero : undefined;
+  }
+
   getDescripcionOjos(value) {
-    const eye = ojos.find(oj => oj.value === value);
-    return eye ? eye.color : undefined;
+    const ojo = ojos.find(oj => oj.value === value);
+    return ojo ? ojo.color : undefined;
   }
 
   getDescripcionSuperpoderes(valores) {
