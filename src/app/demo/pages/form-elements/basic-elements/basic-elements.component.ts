@@ -6,6 +6,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
 import { ojos, superpoderes } from 'src/app/demo/core/constantes';
+import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
 
 @Component({
   selector: 'app-basic-elements',
@@ -22,19 +23,21 @@ export default class BasicElementsComponent {
   public ojos: any = ojos;
   selectedDate: Date;
   public superpoderes: any = superpoderes;
-  public superHeroe: any;
+  public superHeroe: SuperHeroe = <SuperHeroe>{};
 
   constructor(private formBuilder: FormBuilder,
     private superHeroesService: SuperHeroesService,
     private superHeroesDataService: SuperHeroesDataService) {
-    this.superHeroe = this.superHeroesDataService.getSuperHeroe();
+    if (this.superHeroesDataService.getSuperHeroe()) {
+      this.superHeroe = this.superHeroesDataService.getSuperHeroe();
+    }
     this.formulario = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      genero: ['', Validators.required],
-      colorOjos: ['', Validators.required],
-      superpoderes: this.formBuilder.array([], Validators.required),
-      fechaNacimiento: ['', [Validators.required, this.fechaMenorQueAyer]],
-      color: ['', Validators.required]
+      nombre: [this.superHeroe.nombre, Validators.required],
+      genero: [this.superHeroe.genero, Validators.required],
+      colorOjos: [this.superHeroe.colorOjos, Validators.required],
+      superpoderes: this.formBuilder.array(this.superHeroe.superpoderes ? this.superHeroe.superpoderes : [], Validators.required),
+      fechaNacimiento: [this.superHeroe.fechaNacimiento, [Validators.required, this.fechaMenorQueAyer]],
+      color: [this.superHeroe.color, Validators.required]
     });
   }
 
@@ -65,6 +68,13 @@ export default class BasicElementsComponent {
         this.formulario.controls[control].markAsTouched();
       }
     }
+  }
+
+  marcarSuperpoderesDefecto(sp) {
+    if (!this.superHeroe.superpoderes) {
+      return false;
+    }
+    return this.superHeroe.superpoderes.includes(sp);
   }
 
   onCheckboxChange(e, superpoder) {

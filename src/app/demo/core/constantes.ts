@@ -15,7 +15,7 @@ export const superpoderes: any[] = [
   {value: 'VU', poder: 'Vuelo'},
   {value: 'IN', poder: 'Invisibilidad'},
   {value: 'TQ', poder: 'Telequinesis'},
-  {value: 'SF', poder: 'Superfuerzarde'},
+  {value: 'SF', poder: 'Superfuerzar'},
   {value: 'TP', poder: 'Telepatía'},
   {value: 'TT', poder: 'Teletransporte'},
   {value: 'VE', poder: 'Velocidad'},

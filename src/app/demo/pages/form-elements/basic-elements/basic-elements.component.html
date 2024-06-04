@@ -53,7 +53,7 @@
               <!-- <mat-form-field> -->
                 <mat-label>Superpoderes</mat-label>
                 <div>
-                  <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.vlue}}">{{superpoder.poder}}</mat-checkbox>
+                  <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.value}}" [checked]="marcarSuperpoderesDefecto(superpoder.value)">{{superpoder.poder}}</mat-checkbox>
                 </div>
                 <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
               <!-- </mat-form-field> -->
