@@ -34,8 +34,8 @@ const routes: Routes = [
       {
         path: 'tables',
         loadChildren: () =>
-          import('./demo/pages/tables/tables.module').then(
-            (m) => m.TablesModule,
+          import('./demo/pages/tables/tabla-listado.module').then(
+            (m) => m.TablaListadoModule,
           ),
       },
       {
