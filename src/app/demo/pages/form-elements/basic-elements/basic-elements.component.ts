@@ -30,6 +30,7 @@ export default class BasicElementsComponent {
     private superHeroesDataService: SuperHeroesDataService) {
     if (this.superHeroesDataService.getSuperHeroe()) {
       this.superHeroe = this.superHeroesDataService.getSuperHeroe();
+      this.color = this.superHeroe.color;
     }
     this.formulario = this.formBuilder.group({
       nombre: [this.superHeroe.nombre, Validators.required],
