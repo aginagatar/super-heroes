@@ -4,13 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: 'basic',
-        loadComponent: () =>
-          import('./pages/formulario.component'),
-      },
-    ],
+    loadComponent: () =>
+      import('./pages/formulario.component'),
   },
 ];
 

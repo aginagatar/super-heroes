@@ -25,14 +25,14 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'forms',
+        path: 'formulario',
         loadChildren: () =>
           import('./demo/pages/formulario/formulario.module').then(
             (m) => m.FormularioModule,
           ),
       },
       {
-        path: 'tables',
+        path: 'tabla-listado',
         loadChildren: () =>
           import('./demo/pages/tabla-listado/tabla-listado.module').then(
             (m) => m.TablaListadoModule,

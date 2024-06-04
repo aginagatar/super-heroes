@@ -65,13 +65,13 @@ export default class FormularioComponent {
         this.superHeroesService.editarSuperHeroe(superHeroe).subscribe(res => {
           console.log(res);
           this.comunes.aviso('Se ha editado a ' + superHeroe.nombre);
-          this.router.navigate(['/tables/bootstrap']);
+          this.router.navigate(['/tabla-listado']);
         });
       } else {
         this.superHeroesService.crearSuperHeroe(superHeroe).subscribe(res => {
           console.log(res);
           this.comunes.aviso('Se ha creado a ' + superHeroe.nombre);
-          this.router.navigate(['/tables/bootstrap']);
+          this.router.navigate(['/tabla-listado']);
         });
       }
     } else {

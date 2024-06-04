@@ -80,7 +80,7 @@ export default class TablaListadoComponent implements OnInit {
 
   editar(superHeroe: SuperHeroe) {
     this.superHeroesDataService.setSuperHeroe(superHeroe);
-    this.router.navigate(['/forms/basic']);
+    this.router.navigate(['/formulario']);
   }
 
   eliminar(superHeroe: SuperHeroe, enterAnimationDuration: string, exitAnimationDuration: string) {

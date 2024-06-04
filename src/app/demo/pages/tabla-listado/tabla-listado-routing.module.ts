@@ -4,13 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: 'bootstrap',
-        loadComponent: () => import('./pages/tabla-listado.component'),
-      },
-    ],
-  },
+      loadComponent: () => import('./pages/tabla-listado.component'),
+    },
 ];
 
 @NgModule({
