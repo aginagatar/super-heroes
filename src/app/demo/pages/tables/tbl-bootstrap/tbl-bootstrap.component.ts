@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAnimationsExampleDialog } from '../../dialogs/dialog-animations-example-dialog';
 import { Router } from '@angular/router';
 import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
+import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
 
 @Component({
   selector: 'app-tbl-bootstrap',
@@ -18,13 +19,13 @@ import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataS
 })
 export default class TblBootstrapComponent implements OnInit {
 
-  public superHeroes: any;
-  public superHeroesFiltrado: any;
+  public superHeroes: SuperHeroe[];
+  public superHeroesFiltrado: SuperHeroe[];
   searchTable: string = '';
   searchControl: FormControl = new FormControl('');
   public tablaEditable: boolean;
 
-  private superheroesssss =
+  private superheroesssss: SuperHeroe[] =
   [
     {
         "nombre": "spiderman",
@@ -35,7 +36,7 @@ export default class TblBootstrapComponent implements OnInit {
             "TP",
             "RX"
         ],
-        "fechaNacimiento": "1938-11-09T23:00:00.000Z",
+        "fechaNacimiento": new Date('1938-11-09T23:00:00.000Z'),
         "color": "#6663d6",
         "id": "06cb6206b79bbfd5237e"
     },
@@ -48,7 +49,7 @@ export default class TblBootstrapComponent implements OnInit {
           "SF",
           "IN"
       ],
-      "fechaNacimiento": "1951-11-09T23:00:00.000Z",
+      "fechaNacimiento": new Date("1951-11-09T23:00:00.000Z"),
       "color": "#a09bc2",
       "id": "06cb6206b79bb345237e"
   }
@@ -60,12 +61,12 @@ export default class TblBootstrapComponent implements OnInit {
     private superHeroesDataService: SuperHeroesDataService) {}
 
   ngOnInit() {
-    this.superHeroesService.getSuperHeroes().subscribe(res => {
-      console.log(res);
-      this.superHeroes = res;
-      // this.superHeroes = this.superheroesssss;
+    // this.superHeroesService.getSuperHeroes().subscribe(res => {
+    //   console.log(res);
+    //   this.superHeroes = res;
+      this.superHeroes = this.superheroesssss;
       this.superHeroesFiltrado = this.superHeroes;
-    });
+    // });
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
@@ -75,12 +76,12 @@ export default class TblBootstrapComponent implements OnInit {
       });
   }
 
-  editar(superHeroe: any) {
+  editar(superHeroe: SuperHeroe) {
     this.superHeroesDataService.setSuperHeroe(superHeroe);
     this.router.navigate(['/forms/basic']);
   }
 
-  eliminar(superHeroe: any, enterAnimationDuration: string, exitAnimationDuration: string) {
+  eliminar(superHeroe: SuperHeroe, enterAnimationDuration: string, exitAnimationDuration: string) {
     const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
       data: {
         nombre: superHeroe.nombre

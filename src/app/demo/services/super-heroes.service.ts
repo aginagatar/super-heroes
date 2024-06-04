@@ -2,21 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { SuperHeroe } from '../model/superHeroe.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SuperHeroesService {
 
-  private endpoint = 'https://ca62a382e0f1c0c5062b.free.beeceptor.com/api/';
+  private endpoint = 'https://ca62a382e0f1c0c5062ba.free.beeceptor.com/api/';
 
   constructor(public http: HttpClient) {}
 
-  getSuperHeroes(): Observable<any> {
-    return this.http.get(this.endpoint + 'superheroes');
+  getSuperHeroes(): Observable<SuperHeroe[]> {
+    return this.http.get(this.endpoint + 'superheroes').pipe(
+      tap((data: SuperHeroe[]) => {
+        return data;
+      })
+    );;
   }
 
-  crearSuperHeroe(sh: any): Observable<any> {
+  crearSuperHeroe(sh: SuperHeroe): Observable<SuperHeroe> {
     console.log(sh);
     let datos = {
       nombre: sh.nombre,
@@ -27,13 +32,13 @@ export class SuperHeroesService {
       color: sh.color
     };
     return this.http.post(this.endpoint + 'superheroes', datos).pipe(
-      tap((data: any) => {
+      tap((data: SuperHeroe) => {
         return data;
       })
     );
   }
 
-  eliminarSuperHeroe(id: string): Observable<any> {
+  eliminarSuperHeroe(id: string): Observable<void> {
     return this.http.delete(this.endpoint + 'superheroes/' + id).pipe(
       tap((data: any) => {
         return data;
