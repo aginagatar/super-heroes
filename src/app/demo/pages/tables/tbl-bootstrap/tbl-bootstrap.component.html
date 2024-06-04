@@ -74,7 +74,7 @@
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>
-              <th scope="row">{{superHeroe.nombre}}</th>
+              <th scope="row">{{superHeroe.nombre | titlecase}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
               <td>{{getDescripcionGenero(superHeroe.genero)}}</td>
               <td>{{getDescripcionOjos(superHeroe.colorOjos)}}</td>
