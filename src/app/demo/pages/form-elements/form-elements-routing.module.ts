@@ -8,7 +8,7 @@ const routes: Routes = [
       {
         path: 'basic',
         loadComponent: () =>
-          import('./basic-elements/basic-elements.component'),
+          import('./pages/basic-elements.component'),
       },
     ],
   },
