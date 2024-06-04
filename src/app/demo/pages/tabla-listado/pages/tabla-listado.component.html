@@ -1,11 +1,12 @@
 <div class="row" *ngIf="!superHeroes.length">
-  <div style="display: flex; justify-content: center; margin-top: 50px;">
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
     <mat-progress-spinner
           class="example-margin"
           [color]="color"
           [mode]="mode"
           [value]="value">
-      </mat-progress-spinner>
+    </mat-progress-spinner>
+    <span style="margin-top: 20px; font-size: 1.2em;">Cargando datos...</span>
   </div>
 </div>
 <div class="row" *ngIf="superHeroes.length">

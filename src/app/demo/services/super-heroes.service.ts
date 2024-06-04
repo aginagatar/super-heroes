@@ -42,11 +42,12 @@ export class SuperHeroesService {
         "id": "06cb6206b79bb345237e"
     }
   ]).pipe(delay(2000));
-    return this.http.get(this.endpoint + 'superheroes').pipe(
-      tap((data: SuperHeroe[]) => {
-        return data;
-      })
-    );
+    // return this.http.get(this.endpoint + 'superheroes').pipe(
+    //   delay(3000),
+    //   tap((data: SuperHeroe[]) => {
+    //     return data;
+    //   })
+    // );
   }
 
   crearSuperHeroe(sh: SuperHeroe): Observable<SuperHeroe> {
