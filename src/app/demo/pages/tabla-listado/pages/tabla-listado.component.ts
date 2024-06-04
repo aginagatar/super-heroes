@@ -5,11 +5,11 @@ import { generos, ojos, superpoderes } from 'src/app/demo/core/constantes';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogAnimationsExampleDialog } from '../../dialogs/dialog-animations-example-dialog';
 import { Router } from '@angular/router';
 import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
 import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
 import { Comunes } from 'src/app/demo/core/comunes';
+import { Confirmacion } from '../../confirmacion/confirmacion';
 
 @Component({
   selector: 'app-tabla-listado',
@@ -84,7 +84,7 @@ export default class TablaListadoComponent implements OnInit {
   }
 
   eliminar(superHeroe: SuperHeroe, enterAnimationDuration: string, exitAnimationDuration: string) {
-    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
+    const dialogRef = this.dialog.open(Confirmacion, {
       data: {
         nombre: superHeroe.nombre
       },
