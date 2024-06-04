@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
 })
-export default class BasicElementsComponent {
+export default class FormularioComponent {
 
   color = '';
   formulario: FormGroup;
