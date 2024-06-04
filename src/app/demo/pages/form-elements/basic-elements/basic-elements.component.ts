@@ -5,6 +5,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
+import { ojos, superpoderes } from 'src/app/demo/core/constantes';
 
 @Component({
   selector: 'app-basic-elements',
@@ -17,28 +18,10 @@ import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataS
 export default class BasicElementsComponent {
 
   color = '';
-
   formulario: FormGroup;
-  ojos: any = [
-    {value: 'A', color: 'Azules'},
-    {value: 'M', color: 'Marrones'},
-    {value: 'N', color: 'Negros'},
-    {value: 'V', color: 'Verdes'},
-    {value: 'O', color: 'Otro'}
-  ];
+  public ojos: any = ojos;
   selectedDate: Date;
-
-  superpoderes: any = [
-    {value: 'VU', poder: 'Vuelo'},
-    {value: 'IN', poder: 'Invisibilidad'},
-    {value: 'TQ', poder: 'Telequinesis'},
-    {value: 'SF', poder: 'Superfuerzarde'},
-    {value: 'TP', poder: 'Telepatía'},
-    {value: 'TT', poder: 'Teletransporte'},
-    {value: 'VE', poder: 'Velocidad'},
-    {value: 'RX', poder: 'Rayos X'}
-  ];
-
+  public superpoderes: any = superpoderes;
   public superHeroe: any;
 
   constructor(private formBuilder: FormBuilder,
