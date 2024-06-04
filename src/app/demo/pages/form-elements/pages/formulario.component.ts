@@ -11,12 +11,12 @@ import { Comunes } from 'src/app/demo/core/comunes';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-basic-elements',
+  selector: 'app-formulario',
   standalone: true,
   providers: [provideNativeDateAdapter()],
   imports: [SharedModule, NgbDropdownModule],
-  templateUrl: './basic-elements.component.html',
-  styleUrls: ['./basic-elements.component.scss'],
+  templateUrl: './formulario.component.html',
+  styleUrls: ['./formulario.component.scss'],
 })
 export default class BasicElementsComponent {
 

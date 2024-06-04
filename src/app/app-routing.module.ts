@@ -27,8 +27,8 @@ const routes: Routes = [
       {
         path: 'forms',
         loadChildren: () =>
-          import('./demo/pages/form-elements/form-elements.module').then(
-            (m) => m.FormElementsModule,
+          import('./demo/pages/form-elements/formulario.module').then(
+            (m) => m.FormularioModule,
           ),
       },
       {

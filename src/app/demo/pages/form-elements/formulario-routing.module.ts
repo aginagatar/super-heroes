@@ -8,7 +8,7 @@ const routes: Routes = [
       {
         path: 'basic',
         loadComponent: () =>
-          import('./pages/basic-elements.component'),
+          import('./pages/formulario.component'),
       },
     ],
   },
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FormElementsRoutingModule {}
+export class FormularioRoutingModule {}
