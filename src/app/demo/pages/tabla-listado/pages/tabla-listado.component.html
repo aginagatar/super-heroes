@@ -67,12 +67,8 @@
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado" [style.--bs-table-bg]="superHeroe.color">
               <td *ngIf="tablaEditable">
-                <button mat-icon-button matSuffix aria-label="Editar" (click)="editar(superHeroe)" [style.background-color]="superHeroe.color">
-                  <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button matSuffix aria-label="Eliminar" (click)="eliminar(superHeroe, '0ms', '0ms')" [style.background-color]="superHeroe.color">
-                  <mat-icon>delete</mat-icon>
-                </button>
+                <span class="icono"><i class="fa fa-edit" (click)="editar(superHeroe)"></i></span>
+                <span class="icono"><i class="fa fa-trash" (click)="eliminar(superHeroe, '0ms', '0ms')"></i></span>
               </td>
               <th scope="row">{{superHeroe.nombre | titlecase}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
@@ -85,4 +81,42 @@
       </div>
     </app-card>
   </div>
+</div>
+
+
+<div class="col-sm-12">
+  <app-card cardTitle="Pill Badges" [options]="false">
+    <span class="badge m-r-5 badge-pill bg-primary">Primary</span>
+    <span class="badge m-r-5 badge-pill bg-secondary">Secondary</span>
+    <span class="badge m-r-5 badge-pill bg-success">Success</span>
+    <span class="badge m-r-5 badge-pill bg-danger">Danger</span>
+    <span class="badge m-r-5 badge-pill bg-warning">Warning</span>
+    <span class="badge m-r-5 badge-pill bg-info">Info</span>
+    <span class="badge m-r-5 badge-pill bg-light text-dark">Light</span>
+    <span class="badge m-r-5 badge-pill bg-dark">Dark</span>
+  </app-card>
+</div>
+
+
+<div class="col-md-6">
+  <app-card cardTitle="Icon Button Rounded" [options]="false">
+    <button type="button" class="btn btn-icon btn-rounded btn-primary">
+      <i class="feather icon-thumbs-up"></i>
+    </button>
+    <button type="button" class="btn btn-icon btn-rounded btn-secondary">
+      <i class="feather icon-camera"></i>
+    </button>
+    <button type="button" class="btn btn-icon btn-rounded btn-success">
+      <i class="feather icon-check-circle"></i>
+    </button>
+    <button type="button" class="btn btn-icon btn-rounded btn-danger">
+      <i class="feather icon-slash"></i>
+    </button>
+    <button type="button" class="btn btn-icon btn-rounded btn-warning">
+      <i class="feather icon-alert-triangle"></i>
+    </button>
+    <button type="button" class="btn btn-icon btn-rounded btn-info">
+      <i class="feather icon-info"></i>
+    </button>
+  </app-card>
 </div>
