@@ -9,22 +9,20 @@
   </div>
 </div>
 <div class="row" *ngIf="superHeroes.length">
-  <div style="display: flex; justify-content: center; margin-top: 50px;">
-    <mat-form-field appearance="outline">
-      <mat-label>Buscar superhéroe</mat-label>
-      <input matInput placeholder="Buscar superhéroe" [formControl]="searchControl">
-    </mat-form-field>
-  </div>
   <div class="col-xl-12">
     <app-card
       cardTitle="Listado Superhéroes"
       [options]="false"
-      blockClass="table-border-style"
-    >
+      blockClass="table-border-style">
+      <p><mat-slide-toggle [(ngModel)]="tablaEditable">Editar/Eliminar</mat-slide-toggle></p>
+      <button type="submit" class="btn btn-primary" (click)="crearSuperHeroe()">Nuevo Superhéroe</button>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Filtrar superhéroes</mat-label>
+        <input matInput placeholder="Buscar superhéroe" [formControl]="searchControl">
+      </mat-form-field>
       <div class="table-responsive">
-        <p><mat-slide-toggle [(ngModel)]="tablaEditable">Editar/Eliminar</mat-slide-toggle></p>
-        <button type="submit" class="btn btn-primary" (click)="crearSuperHeroe()">Nuevo Superhéroe</button>
-        <table class="table">
+        <table class="table" *ngIf="superHeroesFiltrado.length">
           <thead>
             <tr>
               <th *ngIf="tablaEditable"></th>
@@ -50,6 +48,7 @@
           </tbody>
         </table>
       </div>
+      <div *ngIf="!superHeroesFiltrado.length"><strong>No existe ese superhéroe que cumpla ese filtro</strong></div>
     </app-card>
   </div>
 </div>
