@@ -37,8 +37,8 @@
   </div> -->
   <div style="display: flex; justify-content: center; margin-top: 50px;">
     <mat-form-field appearance="outline">
-      <mat-label>Search</mat-label>
-      <input matInput placeholder="Search" [formControl]="searchControl">
+      <mat-label>Buscar superhéroe</mat-label>
+      <input matInput placeholder="Buscar superhéroe" [formControl]="searchControl">
       <button mat-icon-button matSuffix aria-label="Search" (click)="onSearch()">
         <mat-icon>search</mat-icon>
       </button>
@@ -46,16 +46,16 @@
   </div>
   <div class="col-xl-12">
     <app-card
-      cardTitle="Striped Table"
+      cardTitle="Listado Superhéroes"
       [options]="false"
       blockClass="table-border-style"
     >
       <div class="table-responsive">
+        <p><mat-slide-toggle [(ngModel)]="tablaEditable">Editar/Eliminar</mat-slide-toggle></p>
         <table class="table">
           <thead>
             <tr>
-              <th>Editar</th>
-              <th>Eliminar</th>
+              <th *ngIf="tablaEditable"></th>
               <th>Nombre</th>
               <th>Edad</th>
               <th>Género</th>
@@ -65,12 +65,13 @@
           </thead>
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado" [style.--bs-table-bg]="superHeroe.color">
-              <td>
-                <button mat-raised-button color="primary" (click)="editar()">Editar</button>
-              </td>
-              <td>
-                <!-- <button mat-raised-button color="primary" (click)="eliminar(superHeroe.id)">Eliminar</button> -->
-                <button mat-raised-button (click)="eliminar(superHeroe, '0ms', '0ms')">Eliminar</button>
+              <td *ngIf="tablaEditable">
+                <button mat-icon-button matSuffix aria-label="Editar" (click)="editar(superHeroe)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button matSuffix aria-label="Eliminar" (click)="eliminar(superHeroe, '0ms', '0ms')">
+                  <mat-icon>delete</mat-icon>
+                </button>
               </td>
               <th scope="row">{{superHeroe.nombre}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>

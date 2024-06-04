@@ -20,6 +20,7 @@ export default class TblBootstrapComponent implements OnInit {
   public superHeroesFiltrado: any;
   searchTable: string = '';
   searchControl: FormControl = new FormControl('');
+  public tablaEditable: boolean;
 
   private superheroesssss =
   [
@@ -70,8 +71,8 @@ export default class TblBootstrapComponent implements OnInit {
       });
   }
 
-  editar() {
-    console.log('juujju');
+  editar(superHeroe: any) {
+    console.log(superHeroe);
   }
 
   eliminar(superHeroe: any, enterAnimationDuration: string, exitAnimationDuration: string) {
