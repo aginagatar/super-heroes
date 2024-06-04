@@ -86,7 +86,7 @@ const NavigationItems = [
   },
   {
     id: 'forms',
-    title: 'Forms & Tables',
+    title: 'Navegación',
     type: 'group',
     icon: 'icon-group',
     children: [

@@ -42,13 +42,8 @@ const routes: Routes = [
         path: 'apexchart',
         loadComponent: () =>
           import('./demo/chart/apex-chart/apex-chart.component'),
-      },
-      {
-        path: 'sample-page',
-        loadComponent: () =>
-          import('./demo/extra/sample-page/sample-page.component'),
-      },
-    ],
+      }
+    ]
   },
   {
     path: '',
