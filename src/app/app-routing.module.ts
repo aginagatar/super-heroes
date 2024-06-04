@@ -44,20 +44,7 @@ const routes: Routes = [
           import('./demo/chart/apex-chart/apex-chart.component'),
       }
     ]
-  },
-  {
-    path: '',
-    component: GuestComponent,
-    children: [
-      {
-        path: 'auth',
-        loadChildren: () =>
-          import('./demo/pages/authentication/authentication.module').then(
-            (m) => m.AuthenticationModule,
-          ),
-      },
-    ],
-  },
+  }
 ];
 
 @NgModule({
