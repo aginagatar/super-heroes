@@ -7,7 +7,7 @@ const routes: Routes = [
     children: [
       {
         path: 'bootstrap',
-        loadComponent: () => import('./tbl-bootstrap/tabla-listado.component'),
+        loadComponent: () => import('./pages/tabla-listado.component'),
       },
     ],
   },
