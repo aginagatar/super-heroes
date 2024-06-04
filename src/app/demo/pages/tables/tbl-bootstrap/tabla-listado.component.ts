@@ -12,13 +12,13 @@ import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
 import { Comunes } from 'src/app/demo/core/comunes';
 
 @Component({
-  selector: 'app-tbl-bootstrap',
+  selector: 'app-tabla-listado',
   standalone: true,
   imports: [SharedModule],
-  templateUrl: './tbl-bootstrap.component.html',
-  styleUrls: ['./tbl-bootstrap.component.scss'],
+  templateUrl: './tabla-listado.component.html',
+  styleUrls: ['./tabla-listado.component.scss'],
 })
-export default class TblBootstrapComponent implements OnInit {
+export default class TablaListadoComponent implements OnInit {
 
   public superHeroes: SuperHeroe[];
   public superHeroesFiltrado: SuperHeroe[];
@@ -63,12 +63,12 @@ export default class TblBootstrapComponent implements OnInit {
     private comunes: Comunes) {}
 
   ngOnInit() {
-    // this.superHeroesService.getSuperHeroes().subscribe(res => {
-    //   console.log(res);
-      // this.superHeroes = res;
-      this.superHeroes = this.superheroesssss;
+    this.superHeroesService.getSuperHeroes().subscribe(res => {
+      console.log(res);
+      this.superHeroes = res;
+      // this.superHeroes = this.superheroesssss;
       this.superHeroesFiltrado = this.superHeroes;
-    // });
+    });
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
