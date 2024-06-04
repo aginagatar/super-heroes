@@ -6,6 +6,8 @@ import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAnimationsExampleDialog } from '../../dialogs/dialog-animations-example-dialog';
+import { Router } from '@angular/router';
+import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
 
 @Component({
   selector: 'app-tbl-bootstrap',
@@ -53,7 +55,9 @@ export default class TblBootstrapComponent implements OnInit {
 ];
 
   constructor(private superHeroesService: SuperHeroesService,
-    private dialog: MatDialog) {}
+    private dialog: MatDialog,
+    private router: Router,
+    private superHeroesDataService: SuperHeroesDataService) {}
 
   ngOnInit() {
     this.superHeroesService.getSuperHeroes().subscribe(res => {
@@ -72,7 +76,8 @@ export default class TblBootstrapComponent implements OnInit {
   }
 
   editar(superHeroe: any) {
-    console.log(superHeroe);
+    this.superHeroesDataService.setSuperHeroe(superHeroe);
+    this.router.navigate(['/forms/basic']);
   }
 
   eliminar(superHeroe: any, enterAnimationDuration: string, exitAnimationDuration: string) {

@@ -4,6 +4,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
+import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
 
 @Component({
   selector: 'app-basic-elements',
@@ -38,8 +39,12 @@ export default class BasicElementsComponent {
     {value: 'RX', poder: 'Rayos X'}
   ];
 
+  public superHeroe: any;
+
   constructor(private formBuilder: FormBuilder,
-    private superHeroesService: SuperHeroesService) {
+    private superHeroesService: SuperHeroesService,
+    private superHeroesDataService: SuperHeroesDataService) {
+    this.superHeroe = this.superHeroesDataService.getSuperHeroe();
     this.formulario = this.formBuilder.group({
       nombre: ['', Validators.required],
       genero: ['', Validators.required],
