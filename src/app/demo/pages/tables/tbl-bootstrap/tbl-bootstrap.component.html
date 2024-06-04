@@ -66,10 +66,10 @@
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado" [style.--bs-table-bg]="superHeroe.color">
               <td *ngIf="tablaEditable">
-                <button mat-icon-button matSuffix aria-label="Editar" (click)="editar(superHeroe)">
+                <button mat-icon-button matSuffix aria-label="Editar" (click)="editar(superHeroe)" [style.background-color]="superHeroe.color">
                   <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-icon-button matSuffix aria-label="Eliminar" (click)="eliminar(superHeroe, '0ms', '0ms')">
+                <button mat-icon-button matSuffix aria-label="Eliminar" (click)="eliminar(superHeroe, '0ms', '0ms')" [style.background-color]="superHeroe.color">
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>
