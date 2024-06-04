@@ -1,12 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <app-card cardTitle="Basic Component" [options]="false">
-      <h5>Form controls</h5>
-      <hr />
-
-
-
-
+    <app-card cardTitle="{{tituloForm}}" [options]="false">
     <form [formGroup]="formulario" (ngSubmit)="enviar()">
       <div class="row">
         <div class="col-md-6">
