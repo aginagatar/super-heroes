@@ -10,6 +10,7 @@ import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataS
 import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
 import { Comunes } from 'src/app/demo/core/comunes';
 import { Confirmacion } from '../../confirmacion/confirmacion';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-tabla-listado',
@@ -20,41 +21,14 @@ import { Confirmacion } from '../../confirmacion/confirmacion';
 })
 export default class TablaListadoComponent implements OnInit {
 
-  public superHeroes: SuperHeroe[];
-  public superHeroesFiltrado: SuperHeroe[];
+  public superHeroes: SuperHeroe[] = [];
+  public superHeroesFiltrado: SuperHeroe[] = [];
   searchTable: string = '';
   searchControl: FormControl = new FormControl('');
   public tablaEditable: boolean;
-
-  private superheroesssss: SuperHeroe[] =
-  [
-    {
-        "nombre": "spiderman",
-        "genero": "M",
-        "colorOjos": "A",
-        "superpoderes": [
-            "VU",
-            "TP",
-            "RX"
-        ],
-        "fechaNacimiento": new Date('1938-11-09T23:00:00.000Z'),
-        "color": "#6663d6",
-        "id": "06cb6206b79bbfd5237e"
-    },
-    {
-      "nombre": "batman",
-      "genero": "M",
-      "colorOjos": "V",
-      "superpoderes": [
-          "TQ",
-          "SF",
-          "IN"
-      ],
-      "fechaNacimiento": new Date("1951-11-09T23:00:00.000Z"),
-      "color": "#a09bc2",
-      "id": "06cb6206b79bb345237e"
-  }
-];
+  color = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
@@ -63,12 +37,11 @@ export default class TablaListadoComponent implements OnInit {
     private comunes: Comunes) {}
 
   ngOnInit() {
-    // this.superHeroesService.getSuperHeroes().subscribe(res => {
-    //   console.log(res);
-    //   this.superHeroes = res;
-      this.superHeroes = this.superheroesssss;
+    this.superHeroesService.getSuperHeroes().subscribe(res => {
+      console.log(res);
+      this.superHeroes = res;
       this.superHeroesFiltrado = this.superHeroes;
-    // });
+    });
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
