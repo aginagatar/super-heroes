@@ -26,6 +26,7 @@ export default class FormularioComponent {
   selectedDate: Date;
   public superpoderes: any = superpoderes;
   public superHeroe: SuperHeroe = <SuperHeroe>{};
+  public esEditar: boolean;
 
   constructor(private formBuilder: FormBuilder,
     private superHeroesService: SuperHeroesService,
@@ -35,6 +36,7 @@ export default class FormularioComponent {
     if (this.superHeroesDataService.getSuperHeroe()) {
       this.superHeroe = this.superHeroesDataService.getSuperHeroe();
       this.color = this.superHeroe.color;
+      this.esEditar = true;
     }
     this.formulario = this.formBuilder.group({
       nombre: [this.superHeroe.nombre, Validators.required],
@@ -58,11 +60,20 @@ export default class FormularioComponent {
       console.log('Formulario válido. Datos:', this.formulario.value);
       const superHeroe: any = this.formulario.value;
 
-      this.superHeroesService.crearSuperHeroe(superHeroe).subscribe(res => {
-        console.log(res);
-        this.comunes.aviso('Se ha creado a ' + superHeroe.nombre);
-        this.router.navigate(['/tables/bootstrap']);
-      });
+      if (this.esEditar) {
+        superHeroe.id = this.superHeroe.id;
+        this.superHeroesService.editarSuperHeroe(superHeroe).subscribe(res => {
+          console.log(res);
+          this.comunes.aviso('Se ha editado a ' + superHeroe.nombre);
+          this.router.navigate(['/tables/bootstrap']);
+        });
+      } else {
+        this.superHeroesService.crearSuperHeroe(superHeroe).subscribe(res => {
+          console.log(res);
+          this.comunes.aviso('Se ha creado a ' + superHeroe.nombre);
+          this.router.navigate(['/tables/bootstrap']);
+        });
+      }
     } else {
       // Marcar los campos inválidos como tocados para que se muestren los mensajes de error
       this.marcarCamposComoTocados();

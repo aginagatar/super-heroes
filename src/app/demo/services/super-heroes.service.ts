@@ -30,7 +30,15 @@ export class SuperHeroesService {
   }
 
   editarSuperHeroe(sh: SuperHeroe): Observable<void> {
-    return this.http.put(this.endpoint + 'superheroes/' + sh.id, sh).pipe(
+    let shModificado = {
+      nombre: sh.nombre,
+      genero: sh.genero,
+      colorOjos: sh.colorOjos,
+      superpoderes: sh.superpoderes,
+      fechaNacimiento: sh.fechaNacimiento,
+      color: sh.color
+    };
+    return this.http.put(this.endpoint + 'superheroes/' + sh.id, shModificado).pipe(
       tap((data: any) => {
         return data;
       })

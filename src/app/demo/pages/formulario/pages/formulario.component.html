@@ -14,7 +14,7 @@
             <div class="form-group">
               <mat-form-field>
                 <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Nombre" formControlName="nombre">
+                <input matInput placeholder="Nombre" formControlName="nombre" [readonly]="esEditar">
                 <mat-error *ngIf="formulario.get('nombre').invalid && formulario.get('nombre').touched">El nombre es requerido</mat-error>
               </mat-form-field>
             </div>
