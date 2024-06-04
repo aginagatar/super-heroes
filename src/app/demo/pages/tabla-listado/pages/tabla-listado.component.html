@@ -56,25 +56,25 @@
         <table class="table">
           <thead>
             <tr>
-              <th *ngIf="tablaEditable"></th>
               <th>Nombre</th>
               <th>Edad</th>
               <th>Género</th>
               <th>Color ojos</th>
               <th>Superpoderes<th>
+              <th *ngIf="tablaEditable"></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado" [style.--bs-table-bg]="superHeroe.color">
-              <td *ngIf="tablaEditable">
-                <span class="icono"><i class="fa fa-edit" (click)="editar(superHeroe)"></i></span>
-                <span class="icono"><i class="fa fa-trash" (click)="eliminar(superHeroe, '0ms', '0ms')"></i></span>
-              </td>
               <th scope="row">{{superHeroe.nombre | titlecase}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
               <td>{{getDescripcionGenero(superHeroe.genero)}}</td>
               <td>{{getDescripcionOjos(superHeroe.colorOjos)}}</td>
               <td>{{getDescripcionSuperpoderes(superHeroe.superpoderes)}}</td>
+              <td *ngIf="tablaEditable">
+                <span class="icono"><i class="fa fa-edit" (click)="editar(superHeroe)"></i></span>
+                <span class="icono"><i class="fa fa-trash" (click)="eliminar(superHeroe, '0ms', '0ms')"></i></span>
+              </td>
             </tr>
           </tbody>
         </table>
