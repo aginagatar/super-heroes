@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './theme/shared/shared.module';
 import { GuestComponent } from './theme/layout/guest/guest.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
-import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
 import { NavigationComponent } from './theme/layout/admin/navigation/navigation.component';
 import { NavLeftComponent } from './theme/layout/admin/nav-bar/nav-left/nav-left.component';
@@ -36,7 +35,6 @@ registerLocaleData(localeEs);
     AppComponent,
     GuestComponent,
     AdminComponent,
-    ConfigurationComponent,
     NavBarComponent,
     NavigationComponent,
     NavLeftComponent,
