@@ -9,6 +9,7 @@ import { DialogAnimationsExampleDialog } from '../../dialogs/dialog-animations-e
 import { Router } from '@angular/router';
 import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
 import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
+import { Comunes } from 'src/app/demo/core/comunes';
 
 @Component({
   selector: 'app-tbl-bootstrap',
@@ -58,12 +59,13 @@ export default class TblBootstrapComponent implements OnInit {
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
     private router: Router,
-    private superHeroesDataService: SuperHeroesDataService) {}
+    private superHeroesDataService: SuperHeroesDataService,
+    private comunes: Comunes) {}
 
   ngOnInit() {
     // this.superHeroesService.getSuperHeroes().subscribe(res => {
     //   console.log(res);
-    //   this.superHeroes = res;
+      // this.superHeroes = res;
       this.superHeroes = this.superheroesssss;
       this.superHeroesFiltrado = this.superHeroes;
     // });
@@ -96,6 +98,7 @@ export default class TblBootstrapComponent implements OnInit {
       if (result) {
         this.superHeroesService.eliminarSuperHeroe(superHeroe.id).subscribe(res => {
           console.log(res);
+          this.comunes.aviso('Se ha eliminado a ' + superHeroe.nombre);
         });
       }
     });

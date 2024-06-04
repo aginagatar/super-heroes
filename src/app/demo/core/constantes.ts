@@ -1,6 +1,6 @@
 export const generos: any[] = [
-  {value: 'H', genero: 'Hombre'},
-  {value: 'M', genero: 'Mujer'}
+  {value: 'M', genero: 'Masculino'},
+  {value: 'F', genero: 'Femenino'}
 ];
 
 export const ojos: any[] = [

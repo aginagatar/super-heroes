@@ -7,6 +7,8 @@ import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
 import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
 import { ojos, superpoderes } from 'src/app/demo/core/constantes';
 import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
+import { Comunes } from 'src/app/demo/core/comunes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basic-elements',
@@ -27,7 +29,9 @@ export default class BasicElementsComponent {
 
   constructor(private formBuilder: FormBuilder,
     private superHeroesService: SuperHeroesService,
-    private superHeroesDataService: SuperHeroesDataService) {
+    private superHeroesDataService: SuperHeroesDataService,
+    private comunes: Comunes,
+    private router: Router) {
     if (this.superHeroesDataService.getSuperHeroe()) {
       this.superHeroe = this.superHeroesDataService.getSuperHeroe();
       this.color = this.superHeroe.color;
@@ -56,6 +60,8 @@ export default class BasicElementsComponent {
 
       this.superHeroesService.crearSuperHeroe(superHeroe).subscribe(res => {
         console.log(res);
+        this.comunes.aviso('Se ha creado a ' + superHeroe.nombre);
+        this.router.navigate(['/tables/bootstrap']);
       });
     } else {
       // Marcar los campos inválidos como tocados para que se muestren los mensajes de error
