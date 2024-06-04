@@ -12,6 +12,7 @@
         <div class="col-md-6">
           <form [formGroup]="formulario" (ngSubmit)="enviar()">
             <div class="form-group">
+              <h6>Nombre del superhéroe</h6>
               <mat-form-field>
                 <mat-label>Nombre</mat-label>
                 <input matInput placeholder="Nombre" formControlName="nombre" [readonly]="esEditar" oninput="this.value = this.value.toUpperCase()">
@@ -19,30 +20,16 @@
               </mat-form-field>
             </div>
             <div class="form-group">
-              <!-- <mat-form-field> -->
-                <mat-label>Género</mat-label>
-                <mat-radio-group formControlName="genero" id="generoRadio">
-                  <mat-radio-button value="M">Masculino</mat-radio-button>
-                  <mat-radio-button value="F">Femenino</mat-radio-button>
-                </mat-radio-group>
-                <mat-error *ngIf="formulario.get('genero').invalid && formulario.get('genero').touched">Selecciona el género</mat-error>
-              <!-- </mat-form-field> -->
+              <h6>Género</h6>
+              <mat-radio-group formControlName="genero" id="generoRadio">
+                <mat-radio-button value="M">Masculino</mat-radio-button>
+                <mat-radio-button value="F">Femenino</mat-radio-button>
+              </mat-radio-group>
+              <mat-error *ngIf="formulario.get('genero').invalid && formulario.get('genero').touched">Selecciona el género</mat-error>
             </div>
             <div class="form-group">
-              <!-- <mat-form-field> -->
-                <!-- <mat-label>Color de ojos</mat-label>
-                <mat-select formControlName="colorOjos" placeholder="Selecciona un color">
-                  <mat-option value="A">Azul</mat-option>
-                  <mat-option value="V">Verde</mat-option>
-                  <mat-option value="M">Marrón</mat-option>
-                  <mat-option value="N">Negro</mat-option>
-                  <mat-option value="O">Otro</mat-option>
-                </mat-select>
-                <mat-error *ngIf="formulario.get('colorOjos').invalid && formulario.get('colorOjos').touched">Selecciona el color de ojos</mat-error> -->
-              <!-- </mat-form-field> -->
-
+              <h6>Color de ojos</h6>
               <mat-form-field>
-                <mat-label>Color de ojos</mat-label>
                 <mat-select formControlName="colorOjos" placeholder="Selecciona un color">
                   <mat-option *ngFor="let ojo of ojos" [value]="ojo.value">{{ojo.color}}</mat-option>
                 </mat-select>
@@ -50,18 +37,15 @@
               </mat-form-field>
             </div>
             <div class="form-group">
-              <!-- <mat-form-field> -->
-                <mat-label>Superpoderes</mat-label>
-                <div>
-                  <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.value}}" [checked]="marcarSuperpoderesDefecto(superpoder.value)">{{superpoder.poder}}</mat-checkbox>
-                </div>
-                <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
-              <!-- </mat-form-field> -->
+              <h6>Superpoderes</h6>
+              <div>
+                <mat-checkbox *ngFor="let superpoder of superpoderes" (change)="onCheckboxChange($event, superpoder.value)" value="{{superpoder.value}}" [checked]="marcarSuperpoderesDefecto(superpoder.value)">{{superpoder.poder}}</mat-checkbox>
+              </div>
+              <mat-error *ngIf="formulario.get('superpoderes').invalid && formulario.get('superpoderes').touched">Selecciona al menos un superpoder</mat-error>
             </div>
-
             <div class="form-group">
+              <h6>Fecha de Nacimiento</h6>
               <mat-form-field>
-                <mat-label>Fecha de Nacimiento</mat-label>
                 <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -70,10 +54,9 @@
                 </mat-error>
               </mat-form-field>
             </div>
-
             <div class="form-group">
+              <h6>Color del superhéroe</h6>
               <mat-form-field>
-                <mat-label>Color</mat-label>
                 <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" required/>
                 <mat-icon matSuffix>color_lens</mat-icon>
                 <mat-error *ngIf="formulario.get('color').invalid && formulario.get('color').touched">
