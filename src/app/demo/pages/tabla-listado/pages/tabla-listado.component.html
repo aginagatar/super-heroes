@@ -34,8 +34,8 @@
           <tbody>
             <tr *ngFor="let superHeroe of superHeroesFiltrado" [style.--bs-table-bg]="superHeroe.color">
               <td *ngIf="tablaEditable">
-                <span class="icono"><i class="fa fa-edit" (click)="editar(superHeroe)"></i></span>
-                <span class="icono"><i class="fa fa-trash" (click)="eliminar(superHeroe, '0ms', '0ms')"></i></span>
+                <span class="icono label theme-bg2 text-white f-12 rounded-pill"><i class="fa fa-edit" (click)="editar(superHeroe)"></i></span>
+                <span class="icono label theme-bg text-white f-12 rounded-pill"><i class="fa fa-trash" (click)="eliminar(superHeroe, '0ms', '0ms')"></i></span>
               </td>
               <th scope="row">{{superHeroe.nombre | titlecase}}</th>
               <td>{{calcularEdad(superHeroe.fechaNacimiento)}}</td>
