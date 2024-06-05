@@ -18,7 +18,6 @@ import { NavLogoComponent } from './theme/layout/admin/navigation/nav-logo/nav-l
 import { NavCollapseComponent } from './theme/layout/admin/navigation/nav-content/nav-collapse/nav-collapse.component';
 import { NavGroupComponent } from './theme/layout/admin/navigation/nav-content/nav-group/nav-group.component';
 import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/nav-item/nav-item.component';
-import { NavSearchComponent } from './theme/layout/admin/nav-bar/nav-left/nav-search/nav-search.component';
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { ToggleFullScreenDirective } from './theme/shared/components/full-screen/toggle-full-screen';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,7 +41,6 @@ registerLocaleData(localeEs);
     NavCollapseComponent,
     NavGroupComponent,
     NavItemComponent,
-    NavSearchComponent,
     ToggleFullScreenDirective,
   ],
   imports: [
