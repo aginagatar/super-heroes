@@ -11,6 +11,7 @@ import { SuperHeroe } from 'src/app/superheroes/model/superHeroe.model';
 import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Confirmacion } from '../../confirmacion/confirmacion';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { TextosService } from 'src/app/superheroes/core/textos.service';
 
 @Component({
   selector: 'app-tabla-listado',
@@ -30,20 +31,29 @@ export default class TablaListadoComponent implements OnInit {
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
   public datosCargados: boolean;
+  textos: any;
+  idioma = 'es';
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
     private router: Router,
     private superHeroesDataService: SuperHeroesDataService,
-    private comunes: Comunes) {}
+    private comunes: Comunes,
+    private textosService: TextosService) {}
 
   ngOnInit() {
+    this.cargarTextos();
     this.superHeroesService.getSuperHeroes().subscribe(res => {
       this.datosCargados = true;
       console.log(res);
       this.superHeroes = res;
       this.superHeroesFiltrado = this.superHeroes;
     });
+
+    // setTimeout(() => {
+    //   this.idioma = 'en';
+    //   this.cargarTextos();
+    // }, 5000);
 
     this.searchControl.valueChanges
       .pipe(debounceTime(1000)) // 1 second delay
@@ -129,6 +139,12 @@ export default class TablaListadoComponent implements OnInit {
     });
     const poderes = valores.map(valor => superpoderesMap[valor]).filter(poder => poder !== undefined);
     return poderes.join(', ');
+  }
+
+  private cargarTextos() {
+    this.textosService.getTextos(this.idioma).subscribe(data => {
+      this.textos = data;
+    });
   }
 
 }
