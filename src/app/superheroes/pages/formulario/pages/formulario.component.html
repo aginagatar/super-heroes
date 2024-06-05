@@ -61,9 +61,9 @@
             <button mat-raised-button color="primary" [(colorPicker)]="color" [value]="color" (colorPickerChange)="changeColor($event)">Seleccionar color</button>
             <!-- <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" /> -->
           </div>
-        <button mat-raised-button color="primary" type="submit">Enviar</button>
         </div>
       </div>
+      <button mat-raised-button class="btn btn-primary" color="primary" type="submit">{{txtBotonForm}}</button>
     </form>
 
 

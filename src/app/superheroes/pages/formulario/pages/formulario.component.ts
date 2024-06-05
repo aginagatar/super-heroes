@@ -27,6 +27,7 @@ export default class FormularioComponent {
   public superpoderes: any = superpoderes;
   public superHeroe: SuperHeroe = <SuperHeroe>{};
   public esEditar: boolean;
+  public txtBotonForm = 'Crear';
   public tituloForm = 'Alta Superhéroe';
 
   constructor(private formBuilder: FormBuilder,
@@ -41,6 +42,7 @@ export default class FormularioComponent {
       this.color = this.superHeroe.color;
       this.esEditar = true;
       this.tituloForm = 'Editar Superhéroe';
+      this.txtBotonForm = 'Editar';
     }
     this.formulario = this.formBuilder.group({
       nombre: [this.superHeroe.nombre, Validators.required],
