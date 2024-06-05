@@ -91,14 +91,6 @@ const NavigationItems = [
     icon: 'icon-group',
     children: [
       {
-        id: 'forms-element',
-        title: 'Formulario',
-        type: 'item',
-        url: '/formulario',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text',
-      },
-      {
         id: 'tables',
         title: 'Tabla - Listado',
         type: 'item',
@@ -106,7 +98,15 @@ const NavigationItems = [
         classes: 'nav-item',
         icon: 'feather icon-server',
       },
-    ],
+      {
+        id: 'forms-element',
+        title: 'Formulario',
+        type: 'item',
+        url: '/formulario',
+        classes: 'nav-item',
+        icon: 'feather icon-file-text',
+      }
+    ]
   },
   {
     id: 'chart-maps',
