@@ -76,9 +76,15 @@ export default class TablaListadoComponent implements OnInit {
         this.superHeroesService.eliminarSuperHeroe(superHeroe.id).subscribe(res => {
           console.log(res);
           this.comunes.aviso('Se ha eliminado a ' + superHeroe.nombre);
+          this.eliminarElementoLista(superHeroe.id);
         });
       }
     });
+  }
+
+  eliminarElementoLista(id) {
+    this.superHeroes = this.superHeroes.filter(superHeroe => superHeroe.id !== id);
+    this.superHeroesFiltrado = this.superHeroes;
   }
 
   calcularEdad(data) {
