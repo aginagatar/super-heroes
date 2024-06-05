@@ -23,6 +23,30 @@ export interface Navigation extends NavigationItem {
 
 const NavigationItems = [
   {
+    id: 'forms',
+    title: 'Navegación',
+    type: 'group',
+    icon: 'icon-group',
+    children: [
+      {
+        id: 'tables',
+        title: 'Tabla - Listado',
+        type: 'item',
+        url: '/tabla-listado',
+        classes: 'nav-item',
+        icon: 'feather icon-server',
+      },
+      {
+        id: 'forms-element',
+        title: 'Formulario',
+        type: 'item',
+        url: '/formulario',
+        classes: 'nav-item',
+        icon: 'feather icon-file-text',
+      }
+    ]
+  },
+  {
     id: 'ui-element',
     title: 'UI ELEMENT',
     type: 'group',
@@ -65,30 +89,6 @@ const NavigationItems = [
             url: '/basic/tabs-pills',
           }
         ]
-      }
-    ]
-  },
-  {
-    id: 'forms',
-    title: 'Navegación',
-    type: 'group',
-    icon: 'icon-group',
-    children: [
-      {
-        id: 'tables',
-        title: 'Tabla - Listado',
-        type: 'item',
-        url: '/tabla-listado',
-        classes: 'nav-item',
-        icon: 'feather icon-server',
-      },
-      {
-        id: 'forms-element',
-        title: 'Formulario',
-        type: 'item',
-        url: '/formulario',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text',
       }
     ]
   },
