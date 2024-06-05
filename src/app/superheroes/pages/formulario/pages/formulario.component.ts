@@ -36,6 +36,7 @@ export default class FormularioComponent {
     private router: Router) {
     if (this.superHeroesDataService.getSuperHeroe()) {
       this.superHeroe = this.superHeroesDataService.getSuperHeroe();
+      this.superHeroesDataService.setSuperHeroe(null);
       this.superHeroe.nombre = this.superHeroe.nombre.toUpperCase();
       this.color = this.superHeroe.color;
       this.esEditar = true;
