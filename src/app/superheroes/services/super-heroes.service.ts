@@ -29,32 +29,6 @@ export class SuperHeroesService {
           "id": "06cb6206b79bbfd5237e"
       },
       {
-        "nombre": "qqqqq",
-        "genero": "M",
-        "colorOjos": "A",
-        "superpoderes": [
-            "VU",
-            "TP",
-            "RX"
-        ],
-        "fechaNacimiento": new Date('1933-11-09T23:00:00.000Z'),
-        "color": "#1663d6",
-        "id": "06cb6206b79bafd5237e"
-    },
-    {
-      "nombre": "cccccc",
-      "genero": "M",
-      "colorOjos": "A",
-      "superpoderes": [
-          "VU",
-          "TP",
-          "RX"
-      ],
-      "fechaNacimiento": new Date('1913-11-09T23:00:00.000Z'),
-      "color": "#cc63d6",
-      "id": "06cb6206b79bbfd5r37e"
-  },
-      {
         "nombre": "batman",
         "genero": "M",
         "colorOjos": "V",
@@ -68,12 +42,12 @@ export class SuperHeroesService {
         "id": "06cb6206b79bb345237e"
     }
   ]).pipe(delay(2000));
-    // return this.http.get(this.endpoint + 'superheroes').pipe(
-    //   delay(3000),
-    //   tap((data: SuperHeroe[]) => {
-    //     return data;
-    //   })
-    // );
+    return this.http.get(this.endpoint + 'superheroes').pipe(
+      delay(3000),
+      tap((data: SuperHeroe[]) => {
+        return data;
+      })
+    );
   }
 
   crearSuperHeroe(sh: SuperHeroe): Observable<SuperHeroe> {
