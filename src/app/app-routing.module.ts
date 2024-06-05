@@ -10,12 +10,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'tabla-listado',
         pathMatch: 'full',
-      },
-      {
-        path: 'dashboard',
-        loadComponent: () => import('./demo/dashboard/dashboard.component'),
       },
       {
         path: 'basic',
