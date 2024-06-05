@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 // project import
 import { AppComponent } from './app.component';
 import { SharedModule } from './theme/shared/shared.module';
-import { GuestComponent } from './theme/layout/guest/guest.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
 import { NavigationComponent } from './theme/layout/admin/navigation/navigation.component';
@@ -31,7 +30,6 @@ registerLocaleData(localeEs);
 @NgModule({
   declarations: [
     AppComponent,
-    GuestComponent,
     AdminComponent,
     NavBarComponent,
     NavigationComponent,
