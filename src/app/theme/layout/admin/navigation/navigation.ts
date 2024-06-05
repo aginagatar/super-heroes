@@ -53,6 +53,14 @@ const NavigationItems = [
     icon: 'icon-ui',
     children: [
       {
+        id: 'apexChart',
+        title: 'ApexChart',
+        type: 'item',
+        url: 'apexchart',
+        classes: 'nav-item',
+        icon: 'feather icon-pie-chart',
+      },
+      {
         id: 'basic',
         title: 'Component',
         type: 'collapse',
@@ -91,22 +99,6 @@ const NavigationItems = [
         ]
       }
     ]
-  },
-  {
-    id: 'chart-maps',
-    title: 'Chart',
-    type: 'group',
-    icon: 'icon-charts',
-    children: [
-      {
-        id: 'apexChart',
-        title: 'ApexChart',
-        type: 'item',
-        url: 'apexchart',
-        classes: 'nav-item',
-        icon: 'feather icon-pie-chart',
-      },
-    ],
   }
 ];
 
