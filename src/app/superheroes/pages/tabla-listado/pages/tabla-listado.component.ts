@@ -29,6 +29,7 @@ export default class TablaListadoComponent implements OnInit {
   color = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
+  public datosCargados: boolean;
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
@@ -38,6 +39,7 @@ export default class TablaListadoComponent implements OnInit {
 
   ngOnInit() {
     this.superHeroesService.getSuperHeroes().subscribe(res => {
+      this.datosCargados = true;
       console.log(res);
       this.superHeroes = res;
       this.superHeroesFiltrado = this.superHeroes;
