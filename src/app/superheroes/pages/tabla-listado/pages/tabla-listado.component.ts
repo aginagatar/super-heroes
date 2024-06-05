@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, fromEvent, map } from 'rxjs';
-import { generos, ojos, superpoderes } from 'src/app/demo/core/constantes';
-import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
+import { generos, ojos, superpoderes } from 'src/app/superheroes/core/constantes';
+import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
-import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
-import { Comunes } from 'src/app/demo/core/comunes';
+import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
+import { SuperHeroe } from 'src/app/superheroes/model/superHeroe.model';
+import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Confirmacion } from '../../confirmacion/confirmacion';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 

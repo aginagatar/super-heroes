@@ -3,11 +3,11 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { SuperHeroesService } from 'src/app/demo/services/super-heroes.service';
-import { SuperHeroesDataService } from 'src/app/demo/services/super-heroes.dataService';
-import { ojos, superpoderes } from 'src/app/demo/core/constantes';
-import { SuperHeroe } from 'src/app/demo/model/superHeroe.model';
-import { Comunes } from 'src/app/demo/core/comunes';
+import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
+import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
+import { ojos, superpoderes } from 'src/app/superheroes/core/constantes';
+import { SuperHeroe } from 'src/app/superheroes/model/superHeroe.model';
+import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Router } from '@angular/router';
 
 @Component({
