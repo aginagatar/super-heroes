@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // project import
 import { CardComponent } from './components/card/card.component';
-import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // bootstrap import
@@ -38,8 +37,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CardComponent,
     NgbModule,
     NgScrollbarModule,
-    NgbCollapseModule,
-    BreadcrumbsComponent,
+    NgbCollapseModule
   ],
   exports: [
     CommonModule,
@@ -50,7 +48,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     NgbModule,
     NgScrollbarModule,
     NgbCollapseModule,
-    BreadcrumbsComponent,
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
