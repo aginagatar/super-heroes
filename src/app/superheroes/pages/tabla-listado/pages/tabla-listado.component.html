@@ -16,6 +16,10 @@
       [options]="false"
       blockClass="table-border-style">
       <ng-container *ngIf="superHeroes.length">
+        <mat-button-toggle-group name="fontStyle" aria-label="Idioma" [(ngModel)]="idioma" (change)="onIdiomaChange($event)">
+          <mat-button-toggle value="es">Castellano</mat-button-toggle>
+          <mat-button-toggle value="en">Inglés</mat-button-toggle>
+        </mat-button-toggle-group>
         <p><mat-slide-toggle [(ngModel)]="tablaEditable">Editar/Eliminar</mat-slide-toggle></p>
         <mat-form-field appearance="outline">
           <mat-label>Filtrar superhéroes</mat-label>

@@ -26,6 +26,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ColorPickerModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonToggleModule
   ],
 })
 export class SharedModule {}

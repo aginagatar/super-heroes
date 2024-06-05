@@ -32,7 +32,7 @@ export default class TablaListadoComponent implements OnInit {
   value = 50;
   public datosCargados: boolean;
   textos: any;
-  idioma = 'es';
+  public idioma = 'es';
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
@@ -147,4 +147,8 @@ export default class TablaListadoComponent implements OnInit {
     });
   }
 
+  onIdiomaChange(event: any) {
+    this.idioma= event.value;
+    this.cargarTextos();
+  }
 }
