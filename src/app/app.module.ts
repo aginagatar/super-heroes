@@ -12,7 +12,6 @@ import { GuestComponent } from './theme/layout/guest/guest.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
 import { NavigationComponent } from './theme/layout/admin/navigation/navigation.component';
-import { NavLeftComponent } from './theme/layout/admin/nav-bar/nav-left/nav-left.component';
 import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-right.component';
 import { NavContentComponent } from './theme/layout/admin/navigation/nav-content/nav-content.component';
 import { NavLogoComponent } from './theme/layout/admin/navigation/nav-logo/nav-logo.component';
@@ -37,7 +36,6 @@ registerLocaleData(localeEs);
     AdminComponent,
     NavBarComponent,
     NavigationComponent,
-    NavLeftComponent,
     NavRightComponent,
     NavContentComponent,
     NavLogoComponent,
