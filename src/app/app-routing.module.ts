@@ -20,13 +20,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'formulario',
-        loadChildren: () =>
-          import('./superheroes/pages/formulario/formulario.module').then(
-            (m) => m.FormularioModule,
-          ),
-      },
-      {
         path: 'tabla-listado',
         loadChildren: () =>
           import('./superheroes/pages/tabla-listado/tabla-listado.module').then(
@@ -34,9 +27,11 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'apexchart',
-        loadComponent: () =>
-          import('./superheroes/chart/apex-chart/apex-chart.component'),
+        path: 'formulario',
+        loadChildren: () =>
+          import('./superheroes/pages/formulario/formulario.module').then(
+            (m) => m.FormularioModule,
+          ),
       }
     ]
   }
