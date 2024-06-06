@@ -48,7 +48,7 @@ export default class FormularioComponent {
       nombre: [this.superHeroe.nombre, Validators.required],
       genero: [this.superHeroe.genero, Validators.required],
       colorOjos: [this.superHeroe.colorOjos, Validators.required],
-      superpoderes: this.fb.array(this.superHeroe.superpoderes ? this.superHeroe.superpoderes : [], Validators.required),
+      superpoderes: [this.superHeroe.superpoderes ? this.superHeroe.superpoderes : [], Validators.required],
       fechaNacimiento: [this.superHeroe.fechaNacimiento, [Validators.required, this.fechaMenorQueAyer]],
       color: [this.superHeroe.color, Validators.required]
     });
@@ -103,14 +103,17 @@ export default class FormularioComponent {
 
   onCheckboxChange(e, superpoder) {
     console.log(e);
-    const superpoderes: FormArray = this.formulario.get('superpoderes') as FormArray;
+    const superpoderesSeleccionados = this.formulario.get('superpoderes').value;
     if (e.checked) {
-      superpoderes.push(this.fb.control(superpoder));
+      superpoderesSeleccionados.push(superpoder);
     } else {
-      const index = superpoderes.controls.findIndex(x => x.value === superpoder);
-      superpoderes.removeAt(index);
+      const index = superpoderesSeleccionados.indexOf(superpoder);
+      if (index !== -1) {
+          superpoderesSeleccionados.splice(index, 1);
+      }
     }
-    console.log(superpoderes);
+    this.formulario.get('superpoderes').setValue(superpoderesSeleccionados);
+    console.log(superpoderesSeleccionados);
   }
 
   fechaMenorQueAyer(control) {
