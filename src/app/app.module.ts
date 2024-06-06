@@ -15,7 +15,6 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AdminComponent } from './superheroes/layout/admin.component';
-import { NavBarComponent } from './superheroes/layout/nav-bar/nav-bar.component';
 import { NavigationComponent } from './superheroes/layout/navigation/navigation.component';
 import { NavContentComponent } from './superheroes/layout/navigation/nav-content/nav-content.component';
 import { NavLogoComponent } from './superheroes/layout/navigation/nav-logo/nav-logo.component';
@@ -30,7 +29,6 @@ registerLocaleData(localeEs);
   declarations: [
     AppComponent,
     AdminComponent,
-    NavBarComponent,
     NavigationComponent,
     NavContentComponent,
     NavLogoComponent,
