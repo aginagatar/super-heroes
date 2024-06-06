@@ -47,7 +47,7 @@ export default class FormularioComponent {
       this.txtBotonForm = 'Editar';
     }
     this.formulario = this.fb.group({
-      nombre: [this.superheroe.nombre, Validators.required],
+      nombre: [this.superheroe.nombre, [Validators.required, Validators.maxLength(20)]],
       genero: [this.superheroe.genero, Validators.required],
       colorOjos: [this.superheroe.colorOjos, Validators.required],
       superpoderes: [this.superheroe.superpoderes ? this.superheroe.superpoderes : [], Validators.required],

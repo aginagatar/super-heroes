@@ -9,7 +9,8 @@
               <mat-form-field>
                 <mat-label>Nombre</mat-label>
                 <input matInput placeholder="Nombre" formControlName="nombre" [readonly]="esEditar" oninput="this.value = this.value.toUpperCase()">
-                <mat-error *ngIf="formulario.get('nombre').invalid && formulario.get('nombre').touched">El nombre es requerido</mat-error>
+                <mat-error *ngIf="formulario.get('nombre').hasError('required') && formulario.get('nombre').touched">El nombre es requerido</mat-error>
+                <mat-error *ngIf="formulario.get('nombre').hasError('maxlength') && formulario.get('nombre').touched">El nombre no puede tener más de 20 caracteres</mat-error>
               </mat-form-field>
             </div>
             <div class="form-group">
