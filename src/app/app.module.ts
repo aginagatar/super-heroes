@@ -17,7 +17,6 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AdminComponent } from './superheroes/layout/admin.component';
 import { NavBarComponent } from './superheroes/layout/nav-bar/nav-bar.component';
 import { NavigationComponent } from './superheroes/layout/navigation/navigation.component';
-import { NavRightComponent } from './superheroes/layout/nav-bar/nav-right/nav-right.component';
 import { NavContentComponent } from './superheroes/layout/navigation/nav-content/nav-content.component';
 import { NavLogoComponent } from './superheroes/layout/navigation/nav-logo/nav-logo.component';
 import { NavCollapseComponent } from './superheroes/layout/navigation/nav-content/nav-collapse/nav-collapse.component';
@@ -33,7 +32,6 @@ registerLocaleData(localeEs);
     AdminComponent,
     NavBarComponent,
     NavigationComponent,
-    NavRightComponent,
     NavContentComponent,
     NavLogoComponent,
     NavCollapseComponent,
