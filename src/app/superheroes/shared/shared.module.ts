@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // project import
 import { CardComponent } from './card/card.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 
 // bootstrap import
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -30,7 +29,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
-  declarations: [SpinnerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -45,7 +43,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     FormsModule,
     ReactiveFormsModule,
     CardComponent,
-    SpinnerComponent,
     NgbModule,
     NgScrollbarModule,
     NgbCollapseModule,
