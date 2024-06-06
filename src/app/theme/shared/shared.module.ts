@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // project import
 import { CardComponent } from './card/card.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 // bootstrap import
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
