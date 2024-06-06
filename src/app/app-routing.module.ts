@@ -13,13 +13,6 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'basic',
-        loadChildren: () =>
-          import('./superheroes/ui-elements/ui-basic/ui-basic.module').then(
-            (m) => m.UiBasicModule,
-          ),
-      },
-      {
         path: 'tabla-listado',
         loadChildren: () =>
           import('./superheroes/pages/tabla-listado/tabla-listado.module').then(
