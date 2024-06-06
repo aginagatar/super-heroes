@@ -18,7 +18,7 @@ import { NavCollapseComponent } from './theme/layout/admin/navigation/nav-conten
 import { NavGroupComponent } from './theme/layout/admin/navigation/nav-content/nav-group/nav-group.component';
 import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/nav-item/nav-item.component';
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
-import { ToggleFullScreenDirective } from './theme/shared/components/full-screen/toggle-full-screen';
+import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';
