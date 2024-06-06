@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { SharedModule } from 'src/app/superheroes/shared/shared.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
 import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';

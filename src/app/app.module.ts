@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // project import
 import { AppComponent } from './app.component';
-import { SharedModule } from './theme/shared/shared.module';
+import { SharedModule } from './superheroes/shared/shared.module';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
 import { NavigationComponent } from './theme/layout/admin/navigation/navigation.component';
@@ -18,7 +18,7 @@ import { NavCollapseComponent } from './theme/layout/admin/navigation/nav-conten
 import { NavGroupComponent } from './theme/layout/admin/navigation/nav-content/nav-group/nav-group.component';
 import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/nav-item/nav-item.component';
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
-import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
+import { ToggleFullScreenDirective } from './superheroes/shared/full-screen/toggle-full-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';

@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 // project import
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { SharedModule } from 'src/app/superheroes/shared/shared.module';
 
 @Component({
   selector: 'app-basic-collapse',

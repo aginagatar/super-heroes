@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, fromEvent, map } from 'rxjs';
 import { generos, ojos, superpoderes } from 'src/app/superheroes/core/constantes';
 import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { SharedModule } from 'src/app/superheroes/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
