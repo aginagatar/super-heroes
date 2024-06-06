@@ -9,6 +9,8 @@ import { ojos, superpoderes } from 'src/app/superheroes/core/constantes';
 import { Superheroe } from 'src/app/superheroes/model/superheroe.model';
 import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Router } from '@angular/router';
+import { Ojo } from 'src/app/superheroes/model/ojo.model';
+import { Superpoder } from 'src/app/superheroes/model/superpoder.model';
 
 @Component({
   selector: 'app-formulario',
@@ -22,9 +24,9 @@ export default class FormularioComponent {
 
   color = '';
   formulario: FormGroup;
-  public ojos: any = ojos;
+  public ojos: Ojo[] = ojos;
   selectedDate: Date;
-  public superpoderes: any = superpoderes;
+  public superpoderes: Superpoder[] = superpoderes;
   public superheroe: Superheroe = <Superheroe>{};
   public esEditar: boolean;
   public txtBotonForm = 'Crear';
@@ -64,7 +66,7 @@ export default class FormularioComponent {
     if (this.formulario.valid) {
       // Realizar acción de envío aquí
       console.log('Formulario válido. Datos:', this.formulario.value);
-      const superHeroe: any = this.formulario.value;
+      const superHeroe: Superheroe = this.formulario.value;
 
       if (this.esEditar) {
         superHeroe.id = this.superheroe.id;
