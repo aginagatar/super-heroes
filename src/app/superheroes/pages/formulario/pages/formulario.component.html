@@ -51,15 +51,13 @@
           </div>
           <div class="form-group">
             <h6>Color del superhéroe</h6>
-            <mat-form-field>
+            <mat-form-field id="selectorColor">
               <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" required/>
               <mat-icon matSuffix>color_lens</mat-icon>
-              <mat-error *ngIf="formulario.get('color').invalid && formulario.get('color').touched">
-                Selecciona un color
-              </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="primary" [(colorPicker)]="color" [value]="color" (colorPickerChange)="changeColor($event)">Seleccionar color</button>
-            <!-- <input class="color-picker" matInput [(colorPicker)]="color" [style.background]="color" [value]="color" (colorPickerChange)="changeColor($event)" /> -->
+            <mat-error *ngIf="formulario.get('color').invalid &&  formulario.get('color').touched">
+              Selecciona un color
+            </mat-error>
           </div>
         </div>
       </div>
