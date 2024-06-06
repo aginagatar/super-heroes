@@ -8,22 +8,22 @@ import { AppRoutingModule } from './app-routing.module';
 // project import
 import { AppComponent } from './app.component';
 import { SharedModule } from './superheroes/shared/shared.module';
-import { AdminComponent } from './theme/layout/admin/admin.component';
-import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
-import { NavigationComponent } from './theme/layout/admin/navigation/navigation.component';
-import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-right.component';
-import { NavContentComponent } from './theme/layout/admin/navigation/nav-content/nav-content.component';
-import { NavLogoComponent } from './theme/layout/admin/navigation/nav-logo/nav-logo.component';
-import { NavCollapseComponent } from './theme/layout/admin/navigation/nav-content/nav-collapse/nav-collapse.component';
-import { NavGroupComponent } from './theme/layout/admin/navigation/nav-content/nav-group/nav-group.component';
-import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/nav-item/nav-item.component';
-import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { ToggleFullScreenDirective } from './superheroes/shared/full-screen/toggle-full-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { AdminComponent } from './superheroes/layout/admin.component';
+import { NavBarComponent } from './superheroes/layout/nav-bar/nav-bar.component';
+import { NavigationComponent } from './superheroes/layout/navigation/navigation.component';
+import { NavRightComponent } from './superheroes/layout/nav-bar/nav-right/nav-right.component';
+import { NavContentComponent } from './superheroes/layout/navigation/nav-content/nav-content.component';
+import { NavLogoComponent } from './superheroes/layout/navigation/nav-logo/nav-logo.component';
+import { NavCollapseComponent } from './superheroes/layout/navigation/nav-content/nav-collapse/nav-collapse.component';
+import { NavGroupComponent } from './superheroes/layout/navigation/nav-content/nav-group/nav-group.component';
+import { NavItemComponent } from './superheroes/layout/navigation/nav-content/nav-item/nav-item.component';
+import { NavigationItem } from './superheroes/layout/navigation/navigation';
 
 registerLocaleData(localeEs);
 
