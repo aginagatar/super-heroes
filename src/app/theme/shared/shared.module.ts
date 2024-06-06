@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // project import
-import { CardComponent } from './components/card/card.component';
+import { CardComponent } from './card/card.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // bootstrap import
