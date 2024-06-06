@@ -7,7 +7,7 @@ import { SharedModule } from 'src/app/superheroes/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
-import { SuperHeroe } from 'src/app/superheroes/model/superHeroe.model';
+import { Superheroe } from 'src/app/superheroes/model/superheroe.model';
 import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Confirmacion } from '../../confirmacion/confirmacion';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
@@ -22,8 +22,8 @@ import { TextosService } from 'src/app/superheroes/core/textos.service';
 })
 export default class TablaListadoComponent implements OnInit {
 
-  public superHeroes: SuperHeroe[] = [];
-  public superHeroesFiltrado: SuperHeroe[] = [];
+  public superHeroes: Superheroe[] = [];
+  public superHeroesFiltrado: Superheroe[] = [];
   searchTable: string = '';
   searchControl: FormControl = new FormControl('');
   public tablaEditable: boolean;
@@ -63,8 +63,8 @@ export default class TablaListadoComponent implements OnInit {
       });
   }
 
-  editar(superHeroe: SuperHeroe) {
-    this.superHeroesDataService.setSuperHeroe(superHeroe);
+  editar(superheroe: Superheroe) {
+    this.superHeroesDataService.setSuperheroe(superheroe);
     this.router.navigate(['/formulario']);
   }
 
@@ -72,10 +72,10 @@ export default class TablaListadoComponent implements OnInit {
     this.router.navigate(['/formulario']);
   }
 
-  eliminar(superHeroe: SuperHeroe, enterAnimationDuration: string, exitAnimationDuration: string) {
+  eliminar(superheroe: Superheroe, enterAnimationDuration: string, exitAnimationDuration: string) {
     const dialogRef = this.dialog.open(Confirmacion, {
       data: {
-        nombre: superHeroe.nombre
+        nombre: superheroe.nombre
       },
       width: '250px',
       enterAnimationDuration,
@@ -85,10 +85,10 @@ export default class TablaListadoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if (result) {
-        this.superHeroesService.eliminarSuperHeroe(superHeroe.id).subscribe(res => {
+        this.superHeroesService.eliminarSuperHeroe(superheroe.id).subscribe(res => {
           console.log(res);
-          this.comunes.aviso('Se ha eliminado a ' + superHeroe.nombre);
-          this.eliminarElementoLista(superHeroe.id);
+          this.comunes.aviso('Se ha eliminado a ' + superheroe.nombre);
+          this.eliminarElementoLista(superheroe.id);
         });
       }
     });

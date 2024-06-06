@@ -1,4 +1,4 @@
-export interface SuperHeroe {
+export interface Superheroe {
   id: string;
   nombre: string;
   genero: string;

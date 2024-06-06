@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { SuperHeroe } from '../model/superHeroe.model';
+import { Superheroe } from '../model/superheroe.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SuperHeroesDataService {
 
-  private superHeroe: SuperHeroe;
+  private Superheroe: Superheroe;
 
   constructor() {}
 
-  public getSuperHeroe(): SuperHeroe {
+  public getSuperheroe(): Superheroe {
   //   this.superHeroe =
   //   {
   //     "nombre": "batman",
@@ -25,9 +25,9 @@ export class SuperHeroesDataService {
   //     "color": "#a09bc2",
   //     "id": "06cb6206b79bb345237e"
   // };
-    return this.superHeroe;
+    return this.Superheroe;
   }
-  public setSuperHeroe(superHeroe: SuperHeroe) {
-    this.superHeroe = superHeroe;
+  public setSuperheroe(Superheroe: Superheroe) {
+    this.Superheroe = Superheroe;
   }
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
-import { SuperHeroe } from '../model/superHeroe.model';
+import { Superheroe } from '../model/superheroe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class SuperHeroesService {
 
   constructor(public http: HttpClient) {}
 
-  getSuperHeroes(): Observable<SuperHeroe[]> {
+  getSuperHeroes(): Observable<Superheroe[]> {
     return of([
       {
           "nombre": "spiderman",
@@ -44,21 +44,21 @@ export class SuperHeroesService {
   ]).pipe(delay(2000));
     return this.http.get(this.endpoint + 'superheroes').pipe(
       delay(3000),
-      tap((data: SuperHeroe[]) => {
+      tap((data: Superheroe[]) => {
         return data;
       })
     );
   }
 
-  crearSuperHeroe(sh: SuperHeroe): Observable<SuperHeroe> {
+  crearSuperHeroe(sh: Superheroe): Observable<Superheroe> {
     return this.http.post(this.endpoint + 'superheroes', sh).pipe(
-      tap((data: SuperHeroe) => {
+      tap((data: Superheroe) => {
         return data;
       })
     );
   }
 
-  editarSuperHeroe(sh: SuperHeroe): Observable<void> {
+  editarSuperHeroe(sh: Superheroe): Observable<void> {
     let shModificado = {
       nombre: sh.nombre,
       genero: sh.genero,

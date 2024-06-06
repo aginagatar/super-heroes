@@ -6,7 +6,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
 import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
 import { ojos, superpoderes } from 'src/app/superheroes/core/constantes';
-import { SuperHeroe } from 'src/app/superheroes/model/superHeroe.model';
+import { Superheroe } from 'src/app/superheroes/model/superheroe.model';
 import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Router } from '@angular/router';
 
@@ -25,7 +25,7 @@ export default class FormularioComponent {
   public ojos: any = ojos;
   selectedDate: Date;
   public superpoderes: any = superpoderes;
-  public superHeroe: SuperHeroe = <SuperHeroe>{};
+  public superheroe: Superheroe = <Superheroe>{};
   public esEditar: boolean;
   public txtBotonForm = 'Crear';
   public tituloForm = 'Alta Superhéroe';
@@ -35,22 +35,22 @@ export default class FormularioComponent {
     private superHeroesDataService: SuperHeroesDataService,
     private comunes: Comunes,
     private router: Router) {
-    if (this.superHeroesDataService.getSuperHeroe()) {
-      this.superHeroe = this.superHeroesDataService.getSuperHeroe();
-      this.superHeroesDataService.setSuperHeroe(null);
-      this.superHeroe.nombre = this.superHeroe.nombre.toUpperCase();
-      this.color = this.superHeroe.color;
+    if (this.superHeroesDataService.getSuperheroe()) {
+      this.superheroe = this.superHeroesDataService.getSuperheroe();
+      this.superHeroesDataService.setSuperheroe(null);
+      this.superheroe.nombre = this.superheroe.nombre.toUpperCase();
+      this.color = this.superheroe.color;
       this.esEditar = true;
       this.tituloForm = 'Editar Superhéroe';
       this.txtBotonForm = 'Editar';
     }
     this.formulario = this.fb.group({
-      nombre: [this.superHeroe.nombre, Validators.required],
-      genero: [this.superHeroe.genero, Validators.required],
-      colorOjos: [this.superHeroe.colorOjos, Validators.required],
-      superpoderes: [this.superHeroe.superpoderes ? this.superHeroe.superpoderes : [], Validators.required],
-      fechaNacimiento: [this.superHeroe.fechaNacimiento, [Validators.required, this.fechaMenorQueAyer]],
-      color: [this.superHeroe.color, Validators.required]
+      nombre: [this.superheroe.nombre, Validators.required],
+      genero: [this.superheroe.genero, Validators.required],
+      colorOjos: [this.superheroe.colorOjos, Validators.required],
+      superpoderes: [this.superheroe.superpoderes ? this.superheroe.superpoderes : [], Validators.required],
+      fechaNacimiento: [this.superheroe.fechaNacimiento, [Validators.required, this.fechaMenorQueAyer]],
+      color: [this.superheroe.color, Validators.required]
     });
   }
 
@@ -67,7 +67,7 @@ export default class FormularioComponent {
       const superHeroe: any = this.formulario.value;
 
       if (this.esEditar) {
-        superHeroe.id = this.superHeroe.id;
+        superHeroe.id = this.superheroe.id;
         this.superHeroesService.editarSuperHeroe(superHeroe).subscribe(res => {
           console.log(res);
           this.comunes.aviso('Se ha editado a ' + superHeroe.nombre);
@@ -95,10 +95,10 @@ export default class FormularioComponent {
   }
 
   marcarSuperpoderesDefecto(sp) {
-    if (!this.superHeroe.superpoderes) {
+    if (!this.superheroe.superpoderes) {
       return false;
     }
-    return this.superHeroe.superpoderes.includes(sp);
+    return this.superheroe.superpoderes.includes(sp);
   }
 
   onCheckboxChange(e, superpoder) {
