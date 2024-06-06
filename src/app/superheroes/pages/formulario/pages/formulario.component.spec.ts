@@ -60,7 +60,7 @@ describe('SuperheroFormComponent', () => {
       component.formulario.controls['colorOjos'].setValue('blue');
       component.formulario.controls['fechaNacimiento'].setValue(new Date('2000-01-01'));
       component.formulario.controls['genero'].setValue('M');
-      component.formulario.controls['superpoderes'].setValue(['flight', 'strength']);
+      component.formulario.controls['superpoderes'].setValue(['VU', 'SF']);
       component.formulario.controls['color'].setValue('#ff0000');
 
       expect(component.formulario.valid).toBeTruthy();
@@ -86,15 +86,6 @@ describe('SuperheroFormComponent', () => {
       expect(compiled.querySelector('mat-error').textContent).toContain('El nombre es requerido');
     });
 
-    // it('should capitalize the nombre field input', () => {
-    //   let nombreInput = component.formulario.controls['nombre'];
-    //   nombreInput.setValue('superman');
-    //   fixture.detectChanges();
-
-    //   expect(nombreInput.value).toBe('SUPERMAN');
-    // });
-
-    // Add more tests as needed...
   });
 
 });
