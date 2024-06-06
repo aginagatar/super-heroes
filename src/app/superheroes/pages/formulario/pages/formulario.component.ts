@@ -30,7 +30,7 @@ export default class FormularioComponent {
   public txtBotonForm = 'Crear';
   public tituloForm = 'Alta Superhéroe';
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private fb: FormBuilder,
     private superHeroesService: SuperHeroesService,
     private superHeroesDataService: SuperHeroesDataService,
     private comunes: Comunes,
@@ -44,11 +44,11 @@ export default class FormularioComponent {
       this.tituloForm = 'Editar Superhéroe';
       this.txtBotonForm = 'Editar';
     }
-    this.formulario = this.formBuilder.group({
+    this.formulario = this.fb.group({
       nombre: [this.superHeroe.nombre, Validators.required],
       genero: [this.superHeroe.genero, Validators.required],
       colorOjos: [this.superHeroe.colorOjos, Validators.required],
-      superpoderes: this.formBuilder.array(this.superHeroe.superpoderes ? this.superHeroe.superpoderes : [], Validators.required),
+      superpoderes: this.fb.array(this.superHeroe.superpoderes ? this.superHeroe.superpoderes : [], Validators.required),
       fechaNacimiento: [this.superHeroe.fechaNacimiento, [Validators.required, this.fechaMenorQueAyer]],
       color: [this.superHeroe.color, Validators.required]
     });
@@ -105,7 +105,7 @@ export default class FormularioComponent {
     console.log(e);
     const superpoderes: FormArray = this.formulario.get('superpoderes') as FormArray;
     if (e.checked) {
-      superpoderes.push(this.formBuilder.control(superpoder));
+      superpoderes.push(this.fb.control(superpoder));
     } else {
       const index = superpoderes.controls.findIndex(x => x.value === superpoder);
       superpoderes.removeAt(index);
