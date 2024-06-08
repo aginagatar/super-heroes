@@ -1,0 +1,8 @@
+<div class="form-group">
+  <h6>Género</h6>
+  <mat-radio-group [formControl]="control" id="generoRadio">
+    <mat-radio-button value="M">Masculino</mat-radio-button>
+    <mat-radio-button value="F">Femenino</mat-radio-button>
+  </mat-radio-group>
+  <mat-error *ngIf="control.invalid && control.touched">Selecciona el género</mat-error>
+</div>

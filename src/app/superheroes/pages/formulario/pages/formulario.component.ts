@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/superheroes/shared/shared.module';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
 import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
@@ -11,12 +11,18 @@ import { Comunes } from 'src/app/superheroes/core/comunes';
 import { Router } from '@angular/router';
 import { Ojo } from 'src/app/superheroes/model/ojo.model';
 import { Superpoder } from 'src/app/superheroes/model/superpoder.model';
+import { SuperheroInputComponent } from 'src/app/superheroes/shared/superhero-input/superhero-input.component';
+import { SuperheroSelectComponent } from 'src/app/superheroes/shared/superhero-select/superhero-select.component';
+import { SuperheroDatepickerComponent } from 'src/app/superheroes/shared/superhero-datepicker/superhero-datepicker.component';
+import { SuperheroRadioComponent } from 'src/app/superheroes/shared/superhero-radio/superhero-radio.component';
+import { SuperheroCheckboxComponent } from 'src/app/superheroes/shared/superhero-checkbox/superhero-checkbox.component';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [SharedModule, NgbDropdownModule],
+  imports: [SharedModule, NgbDropdownModule, SuperheroInputComponent, SuperheroSelectComponent, SuperheroDatepickerComponent,
+    SuperheroRadioComponent, SuperheroCheckboxComponent],
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.scss'],
 })
@@ -54,6 +60,10 @@ export default class FormularioComponent {
       fechaNacimiento: [this.superheroe.fechaNacimiento, [Validators.required, this.fechaMenorQueAyer]],
       color: [this.superheroe.color, Validators.required]
     });
+  }
+
+  nombreControl(campo): FormControl {
+    return this.formulario.get(campo) as FormControl;
   }
 
   changeColor(e) {
@@ -94,28 +104,6 @@ export default class FormularioComponent {
         this.formulario.controls[control].markAsTouched();
       }
     }
-  }
-
-  marcarSuperpoderesDefecto(sp) {
-    if (!this.superheroe.superpoderes) {
-      return false;
-    }
-    return this.superheroe.superpoderes.includes(sp);
-  }
-
-  onCheckboxChange(e, superpoder) {
-    console.log(e);
-    const superpoderesSeleccionados = this.formulario.get('superpoderes').value;
-    if (e.checked) {
-      superpoderesSeleccionados.push(superpoder);
-    } else {
-      const index = superpoderesSeleccionados.indexOf(superpoder);
-      if (index !== -1) {
-          superpoderesSeleccionados.splice(index, 1);
-      }
-    }
-    this.formulario.get('superpoderes').setValue(superpoderesSeleccionados);
-    console.log(superpoderesSeleccionados);
   }
 
   fechaMenorQueAyer(control) {

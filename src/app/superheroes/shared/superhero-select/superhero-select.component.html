@@ -1,0 +1,9 @@
+<div class="form-group">
+  <h6>Color de ojos</h6>
+  <mat-form-field>
+    <mat-select [formControl]="control" placeholder="Selecciona un color">
+      <mat-option *ngFor="let valor of valores" [value]="valor.value">{{ valor.color }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="control.invalid && control.touched">Selecciona el color de ojos</mat-error>
+  </mat-form-field>
+</div>

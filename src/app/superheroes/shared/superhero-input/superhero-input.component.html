@@ -1,0 +1,8 @@
+<div class="form-group">
+  <h6>Nombre del superhéroe</h6>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre" [formControl]="control" [readonly]="isEdit" (input)="control.setValue(control.value.toUpperCase(), { emitEvent: false })">
+    <mat-error *ngIf="control.invalid && control.touched">El nombre es requerido</mat-error>
+  </mat-form-field>
+</div>

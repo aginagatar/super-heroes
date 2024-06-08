@@ -1,0 +1,12 @@
+<div class="form-group">
+  <h6>Superpoderes</h6>
+  <div>
+    <mat-checkbox *ngFor="let valor of valores"
+          (change)="onCheckboxChange($event, valor.value)"
+          [value]="valor.value"
+          [checked]="marcarSuperpoderesDefecto(valor.value)">
+      {{valor.poder}}
+    </mat-checkbox>
+  </div>
+  <mat-error *ngIf="control.invalid && control.touched">Selecciona al menos un superpoder</mat-error>
+</div>
