@@ -9,3 +9,21 @@ mat-form-field {
 mat-button-toggle-group {
   margin: 16px 0;
 }
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  /* Set a minimum height for table cells */
+  min-height: 50px; /* Adjust this value as needed */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
