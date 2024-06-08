@@ -34,3 +34,5 @@ Pequeño proyecto para prueba técnia basado en Angular
 - Existe un delay de 3 segundos cuando se obtiene los superhéroes para mostrar un loader
 - Cuando se crea/edita/elimina un superhéroe, se muestra un aviso
 
+## Test
+ - Lanzar test del formulario: *ng test*
