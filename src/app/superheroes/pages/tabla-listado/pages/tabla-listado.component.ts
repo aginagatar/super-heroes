@@ -138,6 +138,7 @@ export default class TablaListadoComponent implements OnInit {
       superpoderesMap[superpoder.value] = superpoder.poder;
     });
     const poderes = valores.map(valor => superpoderesMap[valor]).filter(poder => poder !== undefined);
+    poderes.sort((a, b) => a.localeCompare(b));
     return poderes.join(', ');
   }
 
