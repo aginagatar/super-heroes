@@ -24,14 +24,14 @@ export default class TablaListadoComponent implements OnInit {
 
   public superHeroes: Superheroe[] = [];
   public superHeroesFiltrado: Superheroe[] = [];
-  searchTable: string = '';
-  searchControl: FormControl = new FormControl('');
+  public searchTable: string = '';
+  public searchControl: FormControl = new FormControl('');
   public tablaEditable: boolean;
-  color = 'primary';
-  mode: ProgressSpinnerMode = 'indeterminate';
-  value = 50;
+  public colorSpinner = 'primary';
+  public modeSpinner: ProgressSpinnerMode = 'indeterminate';
+  public valueSpinner = 50;
   public datosCargados: boolean;
-  textos: any;
+  public textos: any;
   public idioma = 'es';
   public mensajeError: boolean;
 
@@ -45,7 +45,6 @@ export default class TablaListadoComponent implements OnInit {
 
   ngOnInit() {
     this.cargarTextos();
-
     this.route.data.subscribe((res: {data: Superheroe[]}) => {
       this.datosCargados = true;
       if (res.data === null) {
@@ -56,28 +55,28 @@ export default class TablaListadoComponent implements OnInit {
       }
     });
 
-    // setTimeout(() => {
-    //   this.idioma = 'en';
-    //   this.cargarTextos();
-    // }, 5000);
 
     this.searchControl.valueChanges
-      .pipe(debounceTime(1000)) // 1 second delay
+      .pipe(debounceTime(1000)) // Delay de 1 segundo desde que deja de escribir
       .subscribe(value => {
         this.searchTable = value;
         this.onSearch();
       });
   }
 
+  // Guarda superheroe y navega al form
   editar(superheroe: Superheroe) {
     this.superHeroesDataService.setSuperheroe(superheroe);
     this.router.navigate(['/formulario']);
   }
 
+  //Navega al form
   crearSuperHeroe() {
     this.router.navigate(['/formulario']);
   }
 
+
+  // Elimina superheroe
   eliminar(superheroe: Superheroe, enterAnimationDuration: string, exitAnimationDuration: string) {
     const dialogRef = this.dialog.open(Confirmacion, {
       data: {
@@ -98,11 +97,13 @@ export default class TablaListadoComponent implements OnInit {
     });
   }
 
+  // Actualziar listado
   eliminarElementoLista(id) {
     this.superHeroes = this.superHeroes.filter(superHeroe => superHeroe.id !== id);
     this.superHeroesFiltrado = this.superHeroes;
   }
 
+  // Edad superheroe
   calcularEdad(data) {
     const date = new Date(data);
     const unixTimestamp = Math.floor(date.getTime() / 1000);
@@ -117,8 +118,8 @@ export default class TablaListadoComponent implements OnInit {
   }
 
 
+  // Búsqyueda de superheroe
   onSearch(): void {
-    // Perform your search logic here
     this.superHeroesFiltrado = this.superHeroes.filter(item =>
       item.nombre.toLowerCase().includes(this.searchTable.toLowerCase())
     );
@@ -144,6 +145,8 @@ export default class TablaListadoComponent implements OnInit {
     return poderes.join(', ');
   }
 
+
+  // Cambio de idioma
   private cargarTextos() {
     this.textosService.getTextos(this.idioma).subscribe(data => {
       this.textos = data;

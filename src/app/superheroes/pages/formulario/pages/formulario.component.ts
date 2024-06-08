@@ -28,10 +28,9 @@ import { SuperheroCheckboxComponent } from 'src/app/superheroes/shared/superhero
 })
 export default class FormularioComponent {
 
-  color = '';
-  formulario: FormGroup;
+  public color = '';
+  public formulario: FormGroup;
   public ojos: Ojo[] = ojos;
-  selectedDate: Date;
   public superpoderes: Superpoder[] = superpoderes;
   public superheroe: Superheroe = <Superheroe>{};
   public esEditar: boolean;
@@ -43,6 +42,8 @@ export default class FormularioComponent {
     private superHeroesDataService: SuperHeroesDataService,
     private comunes: Comunes,
     private router: Router) {
+
+    // Mirar si es editar y superheroe
     if (this.superHeroesDataService.getSuperheroe()) {
       this.superheroe = this.superHeroesDataService.getSuperheroe();
       this.superHeroesDataService.setSuperheroe(null);
@@ -99,6 +100,7 @@ export default class FormularioComponent {
     }
   }
 
+  //Validador
   fechaMenorQueAyer(control) {
     const today = new Date();
     const yesterday = new Date(today);
