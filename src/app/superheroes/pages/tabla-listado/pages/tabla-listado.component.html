@@ -27,7 +27,7 @@
         </mat-form-field>
       </ng-container>
       <div class="table-responsive">
-        <table class="table" *ngIf="superHeroesFiltrado.length">
+        <table class="table" *ngIf="superHeroesFiltrado.length && textos">
           <thead>
             <tr>
               <th *ngIf="tablaEditable"></th>
@@ -54,8 +54,8 @@
         </table>
       </div>
       <div *ngIf="superHeroes.length && !superHeroesFiltrado.length"><strong>No existe ese superhéroe que cumpla ese filtro</strong></div>
-      <div *ngIf="!superHeroes.length && !error"><strong>No existen superhéroes</strong></div>
-      <div *ngIf="!superHeroes.length && error"><strong>¡¡¡Error llamando al servicio!!!</strong></div>
+      <div *ngIf="!superHeroes.length && !mensajeError"><strong>No existen superhéroes</strong></div>
+      <div *ngIf="!superHeroes.length && mensajeError"><strong>¡¡¡Error llamando al servicio!!!</strong></div>
     </app-card>
   </div>
 </div>

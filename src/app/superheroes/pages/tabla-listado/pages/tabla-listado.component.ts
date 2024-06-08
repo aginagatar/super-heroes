@@ -5,7 +5,7 @@ import { generos, ojos, superpoderes } from 'src/app/superheroes/core/constantes
 import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
 import { SharedModule } from 'src/app/superheroes/shared/shared.module';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SuperHeroesDataService } from 'src/app/superheroes/services/super-heroes.dataService';
 import { Superheroe } from 'src/app/superheroes/model/superheroe.model';
 import { Comunes } from 'src/app/superheroes/core/comunes';
@@ -33,31 +33,28 @@ export default class TablaListadoComponent implements OnInit {
   public datosCargados: boolean;
   textos: any;
   public idioma = 'es';
-  public error;
+  public mensajeError: boolean;
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
     private router: Router,
     private superHeroesDataService: SuperHeroesDataService,
     private comunes: Comunes,
-    private textosService: TextosService) {}
+    private textosService: TextosService,
+    private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.cargarTextos();
-    this.superHeroesService.getSuperHeroes().pipe(
-      catchError(error => {
-        this.datosCargados = false;
-        this.error = error;
-        return of([]);
-      })
-    ).subscribe(
-      res => {
-        this.datosCargados = true;
-        console.log(res);
-        this.superHeroes = res;
+
+    this.route.data.subscribe((res: {data: Superheroe[]}) => {
+      this.datosCargados = true;
+      if (res.data === null) {
+        this.mensajeError = true;
+      } else {
+        this.superHeroes = res.data;
         this.superHeroesFiltrado = this.superHeroes;
       }
-    );
+    });
 
     // setTimeout(() => {
     //   this.idioma = 'en';
