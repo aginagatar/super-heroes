@@ -5,9 +5,9 @@ Pequeño proyecto para prueba técnia basado en Angular
 
 
 ## Puesta en marcha
- - Instalar yarn: npm install --global yarn
- - Instalar paquetes: yarn
- - Arrancar proyecto: yarn start
+ - Instalar yarn: *npm install --global yarn*
+ - Instalar paquetes: *yarn*
+ - Arrancar proyecto: *yarn start*
 
 
 
