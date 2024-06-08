@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 // project import
 import { AppComponent } from './app.component';
 import { SharedModule } from './superheroes/shared/shared.module';
-import { ToggleFullScreenDirective } from './superheroes/shared/full-screen/toggle-full-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';
@@ -34,8 +33,7 @@ registerLocaleData(localeEs);
     NavLogoComponent,
     NavCollapseComponent,
     NavGroupComponent,
-    NavItemComponent,
-    ToggleFullScreenDirective,
+    NavItemComponent
   ],
   imports: [
     BrowserModule,
