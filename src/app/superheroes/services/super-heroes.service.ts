@@ -43,7 +43,7 @@ export class SuperHeroesService {
     }
   ]).pipe(delay(2000));
     return this.http.get(this.endpoint + 'superheroes').pipe(
-      delay(3000),
+      delay(1500),
       tap((data: Superheroe[]) => {
         return data;
       })
