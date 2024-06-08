@@ -67,33 +67,26 @@ export default class FormularioComponent {
   }
 
   changeColor(e) {
-    console.log(e);
     this.formulario.get('color').setValue(e);
     this.formulario.get('color').markAsTouched();
   }
 
   enviar() {
     if (this.formulario.valid) {
-      // Realizar acción de envío aquí
-      console.log('Formulario válido. Datos:', this.formulario.value);
       const superHeroe: Superheroe = this.formulario.value;
-
       if (this.esEditar) {
         superHeroe.id = this.superheroe.id;
         this.superHeroesService.editarSuperHeroe(superHeroe).subscribe(res => {
-          console.log(res);
           this.comunes.aviso('Se ha editado a ' + superHeroe.nombre);
           this.router.navigate(['/tabla-listado']);
         });
       } else {
         this.superHeroesService.crearSuperHeroe(superHeroe).subscribe(res => {
-          console.log(res);
           this.comunes.aviso('Se ha creado a ' + superHeroe.nombre);
           this.router.navigate(['/tabla-listado']);
         });
       }
     } else {
-      // Marcar los campos inválidos como tocados para que se muestren los mensajes de error
       this.marcarCamposComoTocados();
     }
   }

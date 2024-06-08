@@ -89,10 +89,8 @@ export default class TablaListadoComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if (result) {
         this.superHeroesService.eliminarSuperHeroe(superheroe.id).subscribe(res => {
-          console.log(res);
           this.comunes.aviso('Se ha eliminado a ' + superheroe.nombre);
           this.eliminarElementoLista(superheroe.id);
         });
@@ -120,12 +118,10 @@ export default class TablaListadoComponent implements OnInit {
 
 
   onSearch(): void {
-    console.log('Search query:', this.searchTable);
     // Perform your search logic here
     this.superHeroesFiltrado = this.superHeroes.filter(item =>
       item.nombre.toLowerCase().includes(this.searchTable.toLowerCase())
     );
-    console.log('Filtered items:', this.superHeroesFiltrado);
   }
 
   getDescripcionGenero(value) {
