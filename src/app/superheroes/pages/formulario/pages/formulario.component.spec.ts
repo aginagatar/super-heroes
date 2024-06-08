@@ -20,7 +20,6 @@ describe('SuperheroFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      // declarations: [FormularioComponent],
       imports: [
         ReactiveFormsModule,
         FormsModule,
