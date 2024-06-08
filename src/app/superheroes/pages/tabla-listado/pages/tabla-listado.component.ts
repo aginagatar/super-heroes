@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { debounceTime, fromEvent, map } from 'rxjs';
+import { catchError, debounceTime, fromEvent, map, of } from 'rxjs';
 import { generos, ojos, superpoderes } from 'src/app/superheroes/core/constantes';
 import { SuperHeroesService } from 'src/app/superheroes/services/super-heroes.service';
 import { SharedModule } from 'src/app/superheroes/shared/shared.module';
@@ -33,6 +33,7 @@ export default class TablaListadoComponent implements OnInit {
   public datosCargados: boolean;
   textos: any;
   public idioma = 'es';
+  public error;
 
   constructor(private superHeroesService: SuperHeroesService,
     private dialog: MatDialog,
@@ -43,12 +44,20 @@ export default class TablaListadoComponent implements OnInit {
 
   ngOnInit() {
     this.cargarTextos();
-    this.superHeroesService.getSuperHeroes().subscribe(res => {
-      this.datosCargados = true;
-      console.log(res);
-      this.superHeroes = res;
-      this.superHeroesFiltrado = this.superHeroes;
-    });
+    this.superHeroesService.getSuperHeroes().pipe(
+      catchError(error => {
+        this.datosCargados = false;
+        this.error = error;
+        return of([]);
+      })
+    ).subscribe(
+      res => {
+        this.datosCargados = true;
+        console.log(res);
+        this.superHeroes = res;
+        this.superHeroesFiltrado = this.superHeroes;
+      }
+    );
 
     // setTimeout(() => {
     //   this.idioma = 'en';
