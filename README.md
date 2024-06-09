@@ -31,7 +31,7 @@ Pequeño proyecto para prueba técnia basado en Angular
 
 
 ## Loader
-- Existe un delay de 3 segundos cuando se obtiene los superhéroes para mostrar un loader
+- Existe un delay de 2 segundos cuando se obtiene los superhéroes para mostrar un loader
 - Cuando se crea/edita/elimina un superhéroe, se muestra un aviso
 
 ## Test
