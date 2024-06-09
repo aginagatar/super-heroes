@@ -15,7 +15,7 @@ export class SuperHeroesService {
 
   getSuperHeroes(): Observable<Superheroe[]> {
     return this.http.get(this.endpoint + 'superheroes').pipe(
-      delay(3000),
+      delay(2000),
       tap((data: Superheroe[]) => {
         return data;
       })
